@@ -1,0 +1,88 @@
+@startuml
+
+skinparam wrapWidth 300
+
+hide circle
+hide empty members
+
+entity Kunde #White {
+   <size:13> PK: id
+   --
+   * <size:12> name
+   --
+   * <size:12> addresse
+   --
+   * <size:12> tlfNummer
+   --
+   * <size:12> email
+}
+
+entity Ordre  #White {
+   <size:13> PK: id
+   --
+   * <size:12> tilbudsDato
+   --
+   * <size:12> ordreDato
+   --
+   * <size:12> leveringsDato
+   --
+   <size:13> FK: kundeID
+   --
+   <size:13> FK: sælgerID
+   --
+   * <size:12> pris
+   --
+   * <size:12> status
+    <size:12>( tilbud / ordre / afsluttet / afslået )
+}
+
+entity Materialer #White {
+   <size:13> PK: id
+   --
+   * <size:12> name
+   --
+   * <size:12> enhed
+   --
+   * <size:12> længde
+   --
+   * <size:12> pris
+}
+
+entity Stykliste #White {
+      <size:13> PK: id
+   --
+  <size:13> FK: ordreID
+   --
+   <size:13> FK: materialeID
+   --
+   * <size:12> antal
+}
+
+entity Sælger #White {
+   <size:13> PK: id
+   --
+   * <size:12> name
+}
+
+Ordre <|-- Stykliste
+Materialer <|-- Stykliste
+Kunde <|- Ordre
+Sælger <|-- Ordre
+@enduml
+
+
+
+object Object01
+object Object02
+object Object03
+object Object04
+object Object05
+object Object06
+object Object07
+object Object08
+
+Object01 <|-- Object02
+Object03 *-- Object04
+Object05 o-- "4" Object06
+Object07 .. Object08 : some labels
+@enduml

@@ -1,0 +1,115 @@
+
+Use Case 1:
+@startuml
+left to right direction
+actor "Kunde" as Kunde
+actor "Sælger" as Sælger
+
+rectangle "Fog's website" {
+  usecase "Designe carport" as UC1
+  usecase "Modtage tilbud" as UC2
+  usecase "Se tilbud" as UC3
+  usecase "Stykliste" as UC4
+}
+
+Kunde -> UC1
+Kunde --> UC2
+Sælger -> UC3
+Sælger --> UC4
+(UC3) .> UC2
+@enduml
+
+Use Case 2:
+@startuml
+left to right direction
+actor "Sælger" as Sælger
+actor "Kunde" as Kunde
+
+rectangle "Salgssamtale" {
+  usecase "Redigerer i tilbud" as UC1
+  usecase "Generer ny stykliste" as UC2
+  usecase "Generer nyt tilbud" as UC3
+  usecase "Modtager nyt tilbud" as UC4
+}
+Sælger -> UC1
+Sælger -> UC2
+Sælger --> UC3
+Kunde --> UC4
+(UC4) .> UC3
+@enduml
+
+Use Case 3:
+@startuml
+left to right direction
+actor "Kunde" as Kunde
+actor "Sælger" as Sælger
+
+rectangle "Tilbud accept" {
+  usecase "Tilbud" as UC1
+  usecase "Ordre" as UC2
+
+}
+Kunde --> UC1
+Sælger --> UC1
+Sælger --> UC2
+
+@enduml
+
+Use Case 4:
+@startuml
+left to right direction
+actor "Kunde" as Kunde
+actor "Sælger" as Sælger
+
+rectangle "Tilbud afslået" {
+  usecase "Tilbud" as UC1
+  usecase "Afsluttet" as UC2
+
+}
+Kunde --> UC1
+Sælger --> UC1
+Sælger --> UC2
+
+@enduml
+
+Use Case 5:
+@startuml
+left to right direction
+actor "Sælger" as Sælger
+actor "Ledelse" as Ledelse
+
+rectangle "Se tilbud / Ordrer" {
+  usecase "Tilbud" as UC1
+  usecase "Ordre(r)" as UC2
+}
+Sælger --> UC1
+Sælger --> UC2
+Ledelse --> UC1
+Ledelse --> UC2
+
+
+@enduml
+
+
+
+
+@startuml
+:Main Admin: as Admin
+(Use the application) as (Use)
+
+User -> (Start)
+User --> (Use)
+
+Admin ---> (Use)
+
+note right of Admin : This is an example.
+
+note right of (Use)
+A note can also
+be on several lines
+end note
+
+note "This note is connected\nto several objects." as N2
+(Start) .. N2
+N2 .. (Use)
+@enduml
