@@ -42,7 +42,7 @@ stop
 
 Aktivitets Diagram TO-BE
 @startuml
-skinparam wrapWidth 110
+skinparam wrapWidth 160
 skinparam activityFontSize 14
 |Kunde|
 start
@@ -53,21 +53,18 @@ start
 :Gennemgår design og autogenereret stykliste;
 :Kontakter kunden;
 |Kunde|
+:Salgssamtale med sælger;
 
-if (
-<size:14>Salgssamtale
-<size:14>med sælger
-)
 |Sælger|
+
 :Redigerer i tilbud
 evt. specialpris / mersalg;
-detach
-else
 |Kunde|
 :Kunden accepterer / afslår;
+
 |Sælger|
 if (
-<size:14>Opretter ordre
+<size:14>Opretter / Afslutter ordre
 )
 |Ledelse|
 :Kan følge salgsmål og lønsomhed;
@@ -79,7 +76,6 @@ else
 :Ordre afsluttes.
 Sælger følger op med kunden.;
 stop
-
 
 @enduml
 

@@ -1,14 +1,12 @@
 @startuml
 
 object Kunde
-Kunde : <size:12>id
 Kunde : <size:12>name
 Kunde : <size:12>addresse
 Kunde : <size:12>telfNummer
 Kunde : <size:12>email
 
 object Sælger
-Sælger : <size:12>id
 Sælger : <size:12>name
 
 
@@ -19,7 +17,6 @@ Materialer : <size:12>bredde
 Materialer : <size:12>stkPris
 
 object Tilbud
-Tilbud : <size:12>id
 Tilbud : <size:12>materialer
 Tilbud : <size:12>pris
 Tilbud : <size:12>kunde
@@ -27,21 +24,17 @@ Tilbud : <size:12>dato
 Tilbud : <size:12>åben
 
 object Ordre
-Ordre : <size:12>id
 Ordre : <size:12>pris
 Ordre : <size:12>kunde
 Ordre : <size:12>dato
 
 object Carport
-Carport : <size:12>id
 Carport : <size:12>type
 
 object Skur
-Skur : <size:12>id
 Skur : <size:12>type
 
 object Stykliste
-Stykliste : <size:12>id
 Stykliste : <size:12>carportId
 
 
