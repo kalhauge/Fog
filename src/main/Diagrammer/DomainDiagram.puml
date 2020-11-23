@@ -17,11 +17,11 @@ Materialer : <size:12>bredde
 Materialer : <size:12>stkPris
 
 object Tilbud
-Tilbud : <size:12>materialer
+Tilbud : <size:12>stykliste
 Tilbud : <size:12>pris
 Tilbud : <size:12>kunde
 Tilbud : <size:12>dato
-Tilbud : <size:12>åben
+Tilbud : <size:12>åben / lukket
 
 object Ordre
 Ordre : <size:12>pris
@@ -36,18 +36,25 @@ Skur : <size:12>type
 
 object Stykliste
 Stykliste : <size:12>carportId
+Stykliste : <size:12>styklisteLinjer
 
+object StyklisteLinje
+StyklisteLinje : <size:12>beskrivelse
+StyklisteLinje : <size:12>materialeName
+StyklisteLinje : <size:12>antal
+StyklisteLinje : <size:12>pris
 
-Materialer "*" o-- "1" Ordre
-Materialer "*" o-- "1" Tilbud
-Tilbud "*" o-- "1" Kunde
-Ordre"*" o-- "1" Kunde
-Materialer "*" o-- "1" Tilbud
-Stykliste "1" -- "1" Tilbud
+Stykliste "1" -- "1" Carport
+
+Stykliste "1" - "*" StyklisteLinje
+Materialer "*" - "1" StyklisteLinje
+
+Tilbud "1" -- "1" Ordre
+Tilbud "*" -- "1" Kunde
+
 Carport "1" -- "1" Tilbud
-Carport "1" -- "1" Ordre
+
 Sælger "1" -- "1" Tilbud
-Sælger "1" -- "1" Ordre
 
 
 Skur . Carport : Optional
