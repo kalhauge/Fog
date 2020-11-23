@@ -7,14 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WebApp Template" />
-        <module name="webapptemplate" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebApp Template" options="-endorseddirs &quot;C:/Users/peter/Creative Cloud Files/CPHB/2semester/Fog/target/endorsed&quot;" />
-      <module name="webapptemplate" options="-endorseddirs &quot;C:\Users\peter\Creative Cloud Files\CPHB\2semester\Fog\target/endorsed&quot;" />
+      <module name="WebApp Template" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
     </option>
   </component>
 </project>

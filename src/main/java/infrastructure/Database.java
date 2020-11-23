@@ -7,9 +7,9 @@ public class Database {
     
     // Database configuration
     static final String DB_SERVER = "localhost";
-    static final String DB_USER = "webappuser";
-    static final String DB_PASS = "webapppassword";
-    static final String SCHEMA_NAME = "Webapp";
+    static final String DB_USER = "fog";
+    static final String DB_PASS = "fog";
+    static final String SCHEMA_NAME = "fog";
     
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -25,11 +25,11 @@ public class Database {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        
+        /*
         if (getCurrentVersion() != getVersion()) {
             throw new IllegalStateException("Database in wrong state, expected:"
                     + getVersion() + ", got: " + getCurrentVersion());
-        }
+        }*/
     }
     
     public static int getCurrentVersion() {
