@@ -17,6 +17,18 @@ entity Kunde #White {
    * <size:12> email
 }
 
+entity Carport #White {
+   <size:13> PK: id
+   --
+   * <size:12> bredde
+   --
+   * <size:12> længde
+   --
+   * <size:12> rejsning
+   --
+   * <size:12> skur
+}
+
 entity Ordre  #White {
    <size:13> PK: id
    --
