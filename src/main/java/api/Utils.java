@@ -15,9 +15,14 @@ public class Utils {
         return src.replaceAll("\\<.*?\\>", "");
     }
     public static int antalStolper(Carport carport){
+        // forudsætter at der må være 3m imellem stolerne i carportens længde
+        //forudsætter at der må være 2m imellem stolperne i skuret
+        //forusætter at forreste stolpe er 1m fra frontern
+        //forudsætter at bageste stolpe er 20 cm fra bagkanten
+        //forudsætter at stolper står 35 cm fra siden
 
         //tilføjer stolper i siderne maks 3m imellem dem
-        int  antal=(carport.getLenght()-1)/3000+1+1;//(stolper i den en side)
+        int  antal=(carport.getLenght()-1201)/3000+1+1;//(stolper i den en side)
         antal=antal*2; // nu i begge sider
 
         // tilføjer stolper i eventuelt skur maks 2 m imellem dem
