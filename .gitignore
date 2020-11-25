@@ -32,3 +32,4 @@ src/test/
 /target/
 target/
 target/*
+src/main/java/resources/
