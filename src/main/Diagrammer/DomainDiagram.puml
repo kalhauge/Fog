@@ -9,30 +9,31 @@ Kunde : <size:12>email
 object Sælger
 Sælger : <size:12>name
 
-
 object Materialer
 Materialer : <size:12>name
 Materialer : <size:12>længde
 Materialer : <size:12>bredde
 Materialer : <size:12>stkPris
 
-object Tilbud
-Tilbud : <size:12>stykliste
-Tilbud : <size:12>pris
-Tilbud : <size:12>kunde
-Tilbud : <size:12>dato
-Tilbud : <size:12>åben / lukket
 
 object Ordre
 Ordre : <size:12>pris
 Ordre : <size:12>kunde
-Ordre : <size:12>dato
+Ordre : <size:12>tilbusDato
+Ordre : <size:12>stykliste
+Ordre : <size:12>kunde
+Ordre : <size:12>ordreDato
+Ordre : <size:12>status
+
 
 object Carport
-Carport : <size:12>type
+Carport : <size:12>længde
+Carport : <size:12>bredde
+Carport : <size:12>rejsning
 
 object Skur
-Skur : <size:12>type
+Skur : <size:12>længde
+Skur : <size:12>bredde
 
 object Stykliste
 Stykliste : <size:12>carportId
@@ -44,18 +45,15 @@ StyklisteLinje : <size:12>materialeName
 StyklisteLinje : <size:12>antal
 StyklisteLinje : <size:12>pris
 
-Stykliste "1" -- "1" Carport
+Stykliste "1" -- "1" Ordre
 
-Stykliste "1" - "*" StyklisteLinje
+Stykliste "1" -- "*" StyklisteLinje
 Materialer "*" - "1" StyklisteLinje
 
-Tilbud "1" -- "1" Ordre
-Tilbud "*" -- "1" Kunde
+Ordre "*" -- "1" Kunde
 
-Carport "1" -- "1" Tilbud
+Carport "1" -- "1" Ordre
 
-Sælger "1" -- "1" Tilbud
-
-
+Sælger "1" -- "1" Ordre
 Skur . Carport : Optional
 @enduml
