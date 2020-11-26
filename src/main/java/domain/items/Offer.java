@@ -1,17 +1,19 @@
 package domain.items;
 
+import domain.materials.Material;
+
 import java.time.LocalDate;
 
 public class Offer {
-    Materials materials;
+    Material material;
     int offerID;
     int price;
     Customer customer;
     LocalDate date;
     boolean openOffer;
 
-    public Offer(Materials materials, int offerID, int price, Customer customer, LocalDate date, boolean openOffer) {
-        this.materials = materials;
+    public Offer(Material material, int offerID, int price, Customer customer, LocalDate date, boolean openOffer) {
+        this.material = material;
         this.price = price;
         this.customer = customer;
         this.date = date;
@@ -19,12 +21,12 @@ public class Offer {
         this.offerID = offerID;
     }
 
-    public Materials getMaterials() {
-        return materials;
+    public Material getMaterials() {
+        return material;
     }
 
-    public void setMaterials(Materials materials) {
-        this.materials = materials;
+    public void setMaterials(Material material) {
+        this.material = material;
     }
     public int getOfferID() {
         return offerID;
