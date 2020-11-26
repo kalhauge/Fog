@@ -109,7 +109,7 @@ hide circle
 hide empty members
 
 entity Kunde #White {
-   <size:13> PK: id
+   <size:13> PK: email
    --
    * <size:12> name
    --
@@ -117,7 +117,9 @@ entity Kunde #White {
    --
    * <size:12> tlfNummer
    --
-   * <size:12> email
+   * <size:12> salt
+   --
+   * <size:12> secret
 }
 
 entity Carport #White {
