@@ -14,7 +14,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="WebApp Template" options="-endorseddirs &quot;C:$PROJECT_DIR$/../../../peter/Creative Cloud Files/CPHB/2semester/Fog/target/endorsed&quot;" />
-      <module name="webapptemplate" options="-endorseddirs C:\Users\PC\Documents\skole\Kode\semester2\NYmaster\Fog\target/endorsed" />
+      <module name="webapptemplate" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
     </option>
   </component>
 </project>
