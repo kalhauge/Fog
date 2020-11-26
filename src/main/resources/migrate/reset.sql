@@ -7,3 +7,4 @@ DROP USER IF EXISTS 'fog'@'localhost';
 CREATE USER 'fog'@'localhost' IDENTIFIED BY 'fog';
 grant all privileges on fog.* to 'fog'@'localhost';
 use fog;
+
