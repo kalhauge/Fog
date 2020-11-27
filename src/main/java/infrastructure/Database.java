@@ -7,9 +7,9 @@ public class Database {
     
     // Database configuration
     static final String DB_SERVER = "localhost";
-    static final String DB_USER = "webappuser";
-    static final String DB_PASS = "webapppassword";
-    static final String SCHEMA_NAME = "Webapp";
+    static final String DB_USER = "fog";
+    static final String DB_PASS = "fog";
+    static final String SCHEMA_NAME = "fog";
     
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -26,28 +26,10 @@ public class Database {
             throw new RuntimeException(e);
         }
         
-        if (getCurrentVersion() != getVersion()) {
-            throw new IllegalStateException("Database in wrong state, expected:"
-                    + getVersion() + ", got: " + getCurrentVersion());
-        }
+
     }
     
-    public static int getCurrentVersion() {
-        try (Connection conn = getConnection()) {
-            Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("SELECT value FROM properties WHERE name = 'version';");
-            if(rs.next()) {
-                String column = rs.getString("value");
-                return Integer.parseInt(column);
-            } else {
-                System.err.println("No version in properties.");
-                return -1;
-            }
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            return -1;
-        }
-    }
+
     
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
