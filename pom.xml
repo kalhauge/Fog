@@ -57,13 +57,10 @@
             <version>1.2</version>
         </dependency>
         <dependency>
-
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.5</version>
         </dependency>
-        
     </dependencies>
 
     <build>

@@ -1,8 +1,9 @@
 package entries;
 
 import infrastructure.Database;
-import org.apache.ibatis.jdbc.ScriptRunner;
 
+import 	org.apache.ibatis.jdbc.ScriptRunner
+        ;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.SQLException;
