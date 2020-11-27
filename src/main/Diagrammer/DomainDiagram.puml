@@ -9,46 +9,59 @@ Kunde : <size:12>email
 object Sælger
 Sælger : <size:12>name
 
-
 object Materialer
 Materialer : <size:12>name
 Materialer : <size:12>længde
 Materialer : <size:12>bredde
 Materialer : <size:12>stkPris
 
-object Tilbud
-Tilbud : <size:12>materialer
-Tilbud : <size:12>pris
-Tilbud : <size:12>kunde
-Tilbud : <size:12>dato
-Tilbud : <size:12>åben
+object Ordre {
+dato
+}
+object Tilbud {
+dato
+pris
+}
+object Bestilling {
+dato
+}
 
-object Ordre
-Ordre : <size:12>pris
-Ordre : <size:12>kunde
-Ordre : <size:12>dato
+object Ordre2
+Ordre2 : <size:12>pris
+Ordre2 : <size:12>tilbusDato
+Ordre2 : <size:12>kunde
+Ordre2 : <size:12>ordreDato
+Ordre2 : <size:12>status
+
 
 object Carport
-Carport : <size:12>type
+Carport : <size:12>længde
+Carport : <size:12>bredde
+Carport : <size:12>rejsning
 
 object Skur
-Skur : <size:12>type
+Skur : <size:12>længde
+Skur : <size:12>bredde
 
 object Stykliste
-Stykliste : <size:12>carportId
 
+object StyklisteLinje
+StyklisteLinje : <size:12>beskrivelse
+StyklisteLinje : <size:12>antal
+StyklisteLinje : <size:12>pris
 
-Materialer "*" o-- "1" Ordre
-Materialer "*" o-- "1" Tilbud
-Tilbud "*" o-- "1" Kunde
-Ordre"*" o-- "1" Kunde
-Materialer "*" o-- "1" Tilbud
-Stykliste "1" -- "1" Tilbud
-Carport "1" -- "1" Tilbud
-Carport "1" -- "1" Ordre
-Sælger "1" -- "1" Tilbud
-Sælger "1" -- "1" Ordre
+Stykliste "1" -- "1" Bestilling
 
+Stykliste "1" -- "*" StyklisteLinje
+Materialer "1" - "*" StyklisteLinje
 
-Skur . Carport : Optional
+Bestilling "*" -- "1" Kunde
+
+Bestilling "1" -- "0..1" Tilbud
+Tilbud "1" -- "0..1" Ordre
+
+Carport "1" -- "1" Bestilling
+
+Sælger "0..1" -- "1" Bestilling
+Skur "0..1" -- "1" Carport
 @enduml

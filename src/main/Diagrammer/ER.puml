@@ -1,3 +1,5 @@
+
+Version 1:
 @startuml
 
 skinparam wrapWidth 300
@@ -17,6 +19,25 @@ entity Kunde #White {
    * <size:12> email
 }
 
+entity Carport #White {
+   <size:13> PK: id
+   --
+   * <size:12> bredde
+   --
+   * <size:12> længde
+   --
+   * <size:12> rejsning
+}
+
+entity Skur #White {
+   <size:13> PK: id
+   --
+   * <size:12> bredde
+   --
+   * <size:12> længde
+}
+
+
 entity Ordre  #White {
    <size:13> PK: id
    --
@@ -26,9 +47,13 @@ entity Ordre  #White {
    --
    * <size:12> leveringsDato
    --
-   <size:13> FK: kundeID
+   <size:13> FK: kundeId
    --
-   <size:13> FK: sælgerID
+   <size:13> FK: sælgerId
+   --
+   <size:13> FK: skurId
+   --
+   <size:13> FK: carportId
    --
    * <size:12> pris
    --
@@ -48,12 +73,12 @@ entity Materialer #White {
    * <size:12> pris
 }
 
-entity Stykliste #White {
-      <size:13> PK: id
+entity StyklisteLinje #White {
+   <size:13> PK: id
    --
-  <size:13> FK: ordreID
+  <size:13> FK: ordreId
    --
-   <size:13> FK: materialeID
+   <size:13> FK: materialeId
    --
    * <size:12> antal
 }
@@ -64,11 +89,134 @@ entity Sælger #White {
    * <size:12> name
 }
 
-Ordre <|-- Stykliste
-Materialer <|-- Stykliste
+
+
+
 Kunde <|- Ordre
 Sælger <|-- Ordre
+Carport <|-- Ordre
+Skur <|-- Ordre
+Ordre <|-- StyklisteLinje
+Materialer <|-- StyklisteLinje
 @enduml
+
+Version 2:
+@startuml
+
+skinparam wrapWidth 300
+
+hide circle
+hide empty members
+
+entity Kunde #White {
+   <size:13> PK: email
+   --
+   * <size:12> name
+   --
+   * <size:12> addresse
+   --
+   * <size:12> tlfNummer
+   --
+   * <size:12> salt
+   --
+   * <size:12> secret
+}
+
+entity Carport #White {
+   <size:13> PK: id
+   --
+   * <size:12> bredde
+   --
+   * <size:12> længde
+   --
+   * <size:12> rejsning
+}
+
+entity Skur #White {
+   <size:13> PK: id
+   --
+   * <size:12> bredde
+   --
+   * <size:12> længde
+}
+
+
+entity Ordre  #White {
+   <size:13> PK: id
+   --
+   * <size:12> tilbudsDato
+   --
+   * <size:12> ordreDato
+   --
+   * <size:12> leveringsDato
+   --
+   <size:13> FK: kundeId
+   --
+   <size:13> FK: sælgerId
+   --
+   <size:13> FK: skurId
+   --
+   <size:13> FK: carportId
+   --
+   * <size:12> pris
+   --
+   * <size:12> status
+    <size:12>( tilbud / ordre / afsluttet / afslået )
+}
+
+entity unitMaterialer #White {
+   <size:13> PK: materialeId (FK)
+   --
+   * <size:12> unitType
+}
+
+entity volumeMaterialer #White {
+   <size:13> PK: materialeId (FK)
+   --
+   * <size:13> bredde
+   --
+   * <size:13> højde
+   --
+   * <size:13> længde
+}
+
+entity Materialer #White {
+   <size:13> PK: id
+   --
+   * <size:12> name
+   --
+   * <size:12> pris
+}
+
+entity StyklisteLinje #White {
+   <size:13> PK: id
+   --
+  <size:13> FK: ordreId
+   --
+   <size:13> FK: materialeId
+   --
+   * <size:12> antal
+}
+
+entity Sælger #White {
+   <size:13> PK: id
+   --
+   * <size:12> name
+}
+
+
+
+
+Kunde <|- Ordre
+Sælger <|-- Ordre
+Carport <|-- Ordre
+Skur <|-- Ordre
+Ordre <|-- StyklisteLinje
+Materialer <|-- StyklisteLinje
+Materialer <|-- volumeMaterialer
+Materialer <|-- unitMaterialer
+@enduml
+
 
 
 

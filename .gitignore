@@ -25,10 +25,11 @@
 hs_err_pid*
 
 .idea/sonarlint/
-src/main/resources/
+src/main/Diagrammer/png/resources3/
 src/main/webapp/META-INF/
 src/main/webapp/assets/
 src/test/
 /target/
 target/
 target/*
+src/main/java/resources/

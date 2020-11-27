@@ -5,14 +5,14 @@ skinparam activityFontSize 14
 skinparam wrapWidth 160
 |Kunde|
 start
-:Designer carport
-online;
+:Designer carport online;
 |Sælger|
 :Modtager mail med kundes design;
-:Gennemgår design og autogenereret stykliste.
+:Gennemgår design og indtaster specifikationer;
 
-Udregner tilbudspris på baggrund af stykliste
-og autogenereret stykliste;
+|IT SYSTEM|
+:Udregner tilbudspris og genererer stykliste;
+|Sælger|
 :Sender tilbud til kunden;
 |Kunde|
 :Kunden modtager tilbud;
@@ -20,23 +20,23 @@ og autogenereret stykliste;
 :Kontakter kunden for kompetence vejledning,
 evt. specialpris / mersalg;
 |Kunde|
-:Kunden accepterer / afslår;
-|Sælger|
-
 if (
-<size:14>Opretter ordre
-)
-|Ledelse|
-:Kan følge salgsmål og lønsomhed;
-detach
-else
+<size:14>Kunden accepterer / afslår
+)  then (<size:14>accept)
+|Sælger|
+: Opretter ordre;
 |Kunde|
 :Kunden betaler, modtager materialer og stykliste;
 |Sælger|
 :Ordre afsluttes.
-Sælger følger op med kunden.;
+Sælger følger op med kunden;
+detach
 stop
-
+else (<size:14>afslår)
+|Sælger|
+:tilbud afsluttes;
+detach
+stop
 
 @enduml
 
@@ -47,35 +47,53 @@ skinparam activityFontSize 14
 |Kunde|
 start
 :Designer carport online;
+|IT SYSTEM|
+:Beregner tilbud og udfører stykliste;
+|Kunde|
 :Modtager autogenereret tilbud;
 |Sælger|
 :Ser orettet tilbud og stykliste;
 :Gennemgår design og autogenereret stykliste;
-:Kontakter kunden;
+:Kontakter kunden
+evt. specialpris / mersalg;
+
 |Kunde|
 :Salgssamtale med sælger;
 
-|Sælger|
-
-:Redigerer i tilbud
-evt. specialpris / mersalg;
-|Kunde|
-:Kunden accepterer / afslår;
-
-|Sælger|
 if (
-<size:14>Opretter / Afslutter ordre
-)
-|Ledelse|
-:Kan følge salgsmål og lønsomhed;
-detach
-else
-|Kunde|
-:Kunden betaler, modtager materialer og stykliste;
+   <size:14>Accept / Afslår
+   ) then (<size:14>accept)
+  |Sælger|
+  :Opretter ordre;
+  stop
+else (<size:14>afslår)
 |Sælger|
-:Ordre afsluttes.
-Sælger følger op med kunden.;
-stop
+:Redigerer i tilbud;
 
+|IT SYSTEM|
+:Beregner nyt tilbud og udfører ny stykliste;
+endif
+stop
 @enduml
 
+|Kunde|
+:Kunden betaler, modtager materialer og stykliste;
+
+
+if (
+<size:14>Salgssamtale med sælger
+) then (<size:14>accept)
+|Sælger|
+:Opretter ordre;
+|Sælger|
+:Ordre afsluttes.
+Sælger følger op med kunden;
+|Kunde|
+:Kunden betaler, modtager materialer og stykl
+
+else (<size:14>afslår)
+|Sælger|
+:Redigerer i tilbud;
+|IT SYSTEM|
+:Beregner nyt tilbud og udfører ny stykliste;
+endif

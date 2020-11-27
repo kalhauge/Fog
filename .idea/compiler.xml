@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+      <entry name="i.e ?*.prefs" />
+    </wildcardResourcePatterns>
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -11,10 +23,5 @@
       </profile>
     </annotationProcessing>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebApp Template" options="-endorseddirs &quot;C:$PROJECT_DIR$/../../../peter/Creative Cloud Files/CPHB/2semester/Fog/target/endorsed&quot;" />
-      <module name="webapptemplate" options="-endorseddirs C:\Users\PC\Documents\skole\Kode\semester2\NYmaster\Fog\target/endorsed" />
-    </option>
-  </component>
+ 
 </project>
