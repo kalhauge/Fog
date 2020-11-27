@@ -23,10 +23,5 @@
       </profile>
     </annotationProcessing>
   </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebApp Template" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
-      <module name="webapptemplate" options="-endorseddirs &quot;C:\Users\peter\Creative Cloud Files\CPHB\2semester\Fog\target/endorsed&quot;" />
-    </option>
-  </component>
+ 
 </project>
