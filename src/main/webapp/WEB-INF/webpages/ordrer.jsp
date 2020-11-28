@@ -1,65 +1,57 @@
-
- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html;charset=UTF-8"%>
-<div class="row">
-    <h1>Din bestilling er modtaget</h1>
+<div class="container">
     <br>
-</div>
-<div class="row">
-    <h3 >Ved afhentning, Venligst oplys: <br/>
-        Email samt bestillingsnummer</h3>
-</div>
-<div class="row">
-    <hr>
     <br>
-</div>
 <div class="row">
     <div class="col-md-2">
-        Bestillings nummer
+        Ordre nummer
     </div>
     <div class="col-md-2">
-        Bestillings dato
+        Navn
     </div>
     <div class="col-md-2">
         Email
     </div>
     <div class="col-md-2">
-        Antal cupcakes
-    </div>
-    <div class="col-md-2">
         Pris
     </div>
     <div class="col-md-2">
-        Afhentningdato
+
+    </div>
+    <div class="col-md-2">
+
     </div>
 </div>
 <hr>
+<c:forEach items="${requestScope.Orders}" var="ordreLinje" >
 <div class="row">
     <div class="col-md-2">
-        ${requestScope.orderID}
+            ${ordreLinje.orderID}
+
     </div>
     <div class="col-md-2">
-        ${requestScope.orderDate}
+        ${ordreLinje.customer.name}
     </div>
     <div class="col-md-2">
-        ${requestScope.email}
+        ${ordreLinje.customer.email}
     </div>
     <div class="col-md-2">
-        ${requestScope.quantity}
+        ${ordreLinje.price}
     </div>
     <div class="col-md-2">
-        ${requestScope.price}
     </div>
     <div class="col-md-2">
-       ${requestScope.pickupDate}
     </div>
 </div>
+</c:forEach>
+
 <hr>
 </div>
 <form method="post" >
     <div class="text-right">
         <input type="hidden" name="afslut" >
-        <button type="submit" class="btn btn-primary" >Afslut</button>
+        <button type="submit" class="btn btn-primary" >Afslut</button
     </div>
 </form>
 
