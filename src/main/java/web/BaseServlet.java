@@ -1,6 +1,7 @@
 package web;
 
 import api.Webapp;
+import infrastructure.DBOrderRepository;
 import infrastructure.Database;
 
 import javax.servlet.ServletException;
@@ -18,8 +19,8 @@ public class BaseServlet extends HttpServlet {
     }
     
     private static Webapp createApplication() {
-        new Database();
-        return new Webapp();
+        Database db=new Database();
+        return new Webapp(new DBOrderRepository(db));
     }
     
     
