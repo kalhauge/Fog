@@ -4,14 +4,23 @@
 <style>
     .page-footer{
         background-color: #003D76;
-        margin-bottom: 0px;
+        margin-bottom: -20px;
+    }
+    .footerlogo {
+        width: auto;
+        height: auto;
+
     }
 
 </style>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4 fixed-bottom">
-
+<footer class="page-footer font-small blue pt-4 position-relative">
+        <a class="footerlogo" href="">
+            <div class="footerlogo">
+                <img src="<c:url value="/images/fogfooter.png"/>" class="img-fluid">
+            </div>
+        </a>
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
 
@@ -22,7 +31,9 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
                 <!-- Content -->
-                <h5 class="text-uppercase">Footer Content</h5>
+                <h5 class="text-uppercase">
+
+                </h5>
                 <p></p>
 
             </div>
