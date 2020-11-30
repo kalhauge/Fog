@@ -1,7 +1,5 @@
 package web.pages;
 
-import domain.items.InvalidItem;
-import domain.items.ItemNotFound;
 import web.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -25,22 +23,8 @@ public class Index extends BaseServlet {
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            addNewItem(req,resp);
-        } catch (IOException | InvalidItem e) {
-            log(e.getMessage());
-            resp.sendError(400, e.getMessage());
-        }
+
     }
     
-    private void addNewItem(HttpServletRequest req, HttpServletResponse resp) throws InvalidItem, IOException {
-        try {
-            String itemName = req.getParameter("inputName");
-            api.createItem(itemName);
-            resp.sendRedirect(req.getContextPath());
-        } catch (InvalidItem e){
-            log(e.getMessage());
-            resp.sendError(400, e.getMessage());
-        }
-    }
+
 }
