@@ -22,7 +22,6 @@ public class Webapp {
     public static int getVersion() {
         return VERSION;
     }
-    
     public static String getTitle() {
         return TITLE;
     }
@@ -31,4 +30,5 @@ public class Webapp {
     }
     public Customer findKunde(int Id){return customers.find(Id);}
     public Carport findcarport(int Id) throws DBException {return carports.find(Id);}
+    public Shed findShed(int Id){return sheds.find(Id);}
 }

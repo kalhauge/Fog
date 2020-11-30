@@ -36,7 +36,7 @@ public class Carport {
         return this.lenght;
     }
 
-    public int getShed() {
+    public int getShedId() {
         return shedId;
     }
 

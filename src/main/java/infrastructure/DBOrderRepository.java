@@ -21,6 +21,8 @@ public class DBOrderRepository implements OrderRepository {
 
         Order o3=new Order(3,2,3,50000,"ordre");
         o3.setTilbudsdato(LocalDate.of(2020,11,10));
+        o3.setOrdredato(LocalDate.of(2020,11,17));
+        o3.setLeveringsDato(LocalDate.of(2021,02,12));
 
         Order o4=new Order(4,2,4,75000,"afslået");
         o4.setTilbudsdato(LocalDate.of(2020,11,10));
