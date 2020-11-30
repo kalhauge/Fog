@@ -40,7 +40,7 @@
         <!-- Begin page content -->
         <main role="main" class="flex-shrink-0">
             <!-- Content start -->
-            <br> <br> <br> <br>
+
             <jsp:include page="${requestScope.content}" flush="true"/>
             <!-- Content end -->
         </main>

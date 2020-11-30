@@ -1,14 +1,22 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    .body-text{
+        margin-left: 5px;
+
+    }
+
+</style>
 <html>
 <head>
     <title>Forside</title>
 </head>
 <body>
 
-<div class="row">
+<div class="body-text">
+<h1>HEADER-TEXT</h1>
 
-<h1> hallo hallo </h1>
+<p> body-text</p>
 </div>
 </body>
 </html>
