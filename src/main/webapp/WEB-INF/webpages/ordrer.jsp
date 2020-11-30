@@ -9,6 +9,20 @@
 <div class="container">
     <br>
     <br>
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-2" align="center" >
+            carport
+        </div>
+        <div class="col-md-2" align="center">
+            skur
+        </div>
+        <div class="col-md-2" >
+
+        </div>
+    </div>
 <div class="row">
     <div class="col-md-1">
         Ordre nummer
