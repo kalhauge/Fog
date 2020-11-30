@@ -22,6 +22,11 @@
         margin: 5px;
 
     }
+    .navbar-ordrer {
+        color: #FFFFFF;
+        margin: 5px;
+
+    }
     .logo {
         width: 80px;
         height: 80px;
@@ -103,6 +108,20 @@
                 </li>
 
             </ul>
+            <a class="navbar-ordrer" href="ordrer"> Ordrer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <form class="px-3 py-3" method="post" action="<c:url value="/ordrer"/>">
+                </form>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse4">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+
+
+                    </li>
+
+                </ul>
 
         <form class="form-inline mt-2 mt-md-0">
 
