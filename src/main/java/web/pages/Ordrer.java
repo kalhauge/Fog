@@ -64,8 +64,13 @@ public class Ordrer extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (req.getParameter("vis") != null) {
+            int orderToShow = Integer.parseInt(req.getParameter("vis"));
+            System.out.println(orderToShow);
 
+            resp.sendRedirect(req.getContextPath() + "/ordre?ordre="+orderToShow);
+
+        }
     }
-
 
 }
