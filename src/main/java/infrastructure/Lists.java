@@ -1,13 +1,16 @@
 package infrastructure;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Lists {
     int[] carportMeasure = {240, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720, 750};
     String[] tag = {"Plasttrapezplader"};
+    String[] tagRejs = {"Betontagsten - Rød", "Betontagsten - Teglrød", "Betontagsten - Brun", "Betontagsten - Sort", "Eternittag B6 - Grå", "Eternittag B6 - Sort", "Eternittag B6 - Mokka (brun)", "Eternittag B6 - Rødbrun", "Eternittag B6 - Teglrød", "Eternittag B7 - Grå", "Eternittag B7 - Sort", "Eternittag B7 - Mokka (brun)", "Eternittag B7 - Rødbrun", "Eternittag B7 - Teglrød", "Eternittag B7 - Rødflammet"};
+    int[] tagHaldning = {25, 30, 35, 40, 45};
+
     int[] shed = {150, 180, 210, 270, 300, 330, 360, 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720};
+
 
     public Lists() { }
 
@@ -35,14 +38,21 @@ public class Lists {
         return shedOutput;
     }
 
-
-
-    public int[] getBredde() {
-        return carportMeasure;
+    public ArrayList tagRejs() {
+        ArrayList tagRejsOutput = new ArrayList<>();
+        for (int i = 0; i < tagRejs.length; i++) {
+            tagRejsOutput.add(tagRejs[i]);
+        }
+        return tagRejsOutput;
     }
 
-    public void setBredde(int[] measure) {
-        this.carportMeasure = carportMeasure;
+    public ArrayList tagHaldning() {
+        ArrayList tagHaldningOutput = new ArrayList<>();
+        for (int i = 0; i < tagHaldning.length; i++) {
+            tagHaldningOutput.add(tagHaldning[i]);
+        }
+        return tagHaldningOutput;
     }
+
 
 }
