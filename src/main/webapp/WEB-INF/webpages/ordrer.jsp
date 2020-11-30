@@ -10,7 +10,7 @@
     <br>
     <br>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
 
         </div>
         <div class="col-md-2" align="center" >
@@ -36,7 +36,7 @@
     <div class="col-md-1">
         levering
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         Navn
     </div>
     <div class="col-md-1">
@@ -73,7 +73,7 @@
     <div class="col-md-1">
             ${ordreLinje.leveringsDato}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
             ${requestScope.navne[loop.index]}
     </div>
     <div class="col-md-1">
@@ -95,17 +95,15 @@
     <div class="col-md-1">
         ${ordreLinje.status}
     </div>
-
+    <div class="col-md-1">
+        <form method="post" >
+            <input type="hidden" name="vis" value="${ordreLinje.orderID}">
+            <button type="submit" class="btn btn-primary" >Vis</button>
+        </form>
+    </div>
 </div>
 </c:forEach>
 
 <hr>
 </div>
-<form method="post" >
-    <div class="text-right">
-        <input type="hidden" name="afslut" >
-        <button type="submit" class="btn btn-primary" >Afslut</button
-    </div>
-</form>
-
 
