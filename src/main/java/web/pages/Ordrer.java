@@ -1,7 +1,9 @@
 package web.pages;
 
+import domain.items.Carport;
 import domain.items.DBException;
 import domain.items.Order;
+import domain.items.Shed;
 import web.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -22,13 +24,21 @@ public class Ordrer extends BaseServlet {
         List<Integer> carportLaengder=new ArrayList<>();
         List<Integer> skurBredder=new ArrayList<>();
         List<Integer> skurLaengder=new ArrayList<>();
+
         for (Order o:orders) {
             String navn=api.findKunde(o.getKundeId()).getName();navne.add(navn);
-
             try {
-
-                int cBredde=api.findcarport(o.getCarportId()).getWidth();carportBredder.add(cBredde);
-                int cLaengde=api.findcarport(o.getCarportId()).getLenght();carportLaengder.add(cLaengde);
+                Carport c=api.findcarport(o.getCarportId());
+                carportBredder.add(c.getWidth());
+                carportLaengder.add(c.getLenght());
+                Shed s=api.findShed(c.getShedId());
+                if (s!=null) {
+                    skurBredder.add(s.getWidht());
+                    skurLaengder.add(s.getLenght());
+                }else{
+                    skurBredder.add(0);
+                    skurLaengder.add(0);
+                }
 
 
 
@@ -40,6 +50,8 @@ public class Ordrer extends BaseServlet {
         }
         req.setAttribute("carportbredder",carportBredder);
         req.setAttribute("carportlaengder",carportLaengder);
+        req.setAttribute("skurbredder",skurBredder);
+        req.setAttribute("skurlaengder",skurLaengder);
         req.setAttribute("Orders", orders);
         req.setAttribute("navne",navne);
         try {

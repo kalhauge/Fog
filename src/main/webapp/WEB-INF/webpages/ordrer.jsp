@@ -38,6 +38,9 @@
         længde
     </div>
     <div class="col-md-1">
+        pris
+    </div>
+    <div class="col-md-1">
         status
     </div>
 </div>
@@ -54,7 +57,7 @@
             ${ordreLinje.ordredato}
     </div>
     <div class="col-md-1">
-
+            ${ordreLinje.leveringsDato}
     </div>
     <div class="col-md-2">
             ${requestScope.navne[loop.index]}
@@ -67,10 +70,13 @@
 
     </div>
     <div class="col-md-1">
-
+        ${requestScope.skurbredder[loop.index]}
     </div>
     <div class="col-md-1">
-
+        ${requestScope.skurlaengder[loop.index]}
+    </div>
+    <div class="col-md-1">
+            ${ordreLinje.price}
     </div>
     <div class="col-md-1">
         ${ordreLinje.status}
