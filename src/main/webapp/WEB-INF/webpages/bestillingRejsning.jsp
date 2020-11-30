@@ -81,10 +81,11 @@
                     <!-- Dropdown roofhældning -->
                     <div class="form-group ">
                         <label for="tagHald">Taghældning</label>
-                        <select class="form-control" name="number" id="TagHald">
-                            <c:forEach  items="${requestScope.tagHaldning}" var="TagHald">
-                                <option value="${TagHald}">
-                                        ${TagHald} grader
+                        <select class="form-control" name="number" id="tagHald">
+                            <c:forEach  items="${requestScope.tagHald}" var="tagHald">
+                                <option value="${tagHald}">
+
+                                        ${tagHald} grader
                                 </option>
                             </c:forEach>
                         </select>
