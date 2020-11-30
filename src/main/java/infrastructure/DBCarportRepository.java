@@ -2,17 +2,22 @@ package infrastructure;
 
 import domain.items.Carport;
 import domain.items.CarportRepository;
-import domain.items.Shed;
+
+import domain.items.DBException;
 
 public class DBCarportRepository implements CarportRepository {
+
+
     @Override
-    public Iterable<Carport> findAll() {
+    public Iterable<Carport> findAll() throws DBException {
+
         return null;
     }
 
     @Override
-    public Carport find(int parseInt) {
-        Carport carport=new Carport("",parseInt,5000,9000,new Shed(1,"",4000,2500));
-        return carport;
+
+    public Carport find(int parseInt) throws DBException {
+        return null;
+
     }
 }
