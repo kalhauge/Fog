@@ -40,6 +40,9 @@
         margin: 5px;
 
     }
+    .nav-item {
+        margin: 5px;
+    }
 
 
 
@@ -48,17 +51,20 @@
 
 
 </style>
+
 <nav class="navbar navbar-expand-md navbar-dark static-top navbar-custom ">
+
    <a class="logo" href="">
        <div class="logo">
            <img src="<c:url value="/images/fog2.png"/>" class="img-fluid">
        </div>
+
    </a>
 
-    <a class="navbar-home" href=""> Home</a>
+    <a class="navbar-home" href="frontpage"> Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        <form class="px-3 py-3" method="post" action="<c:url value="/frontpage"/>">
+        <form class="px-3 py-3" method="get" action="<c:url value="/frontpage"/>">
 
         </form>
 
@@ -70,7 +76,7 @@
             </li>
 
         </ul>
-        <a class="navbar-carporte" href="">Carporte</a>
+        <a class="navbar-carporte" href="bestilling">Carporte</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             <form class="px-3 py-3" method="post" action="<c:url value="/bestilling"/>">
@@ -83,7 +89,7 @@
 
             </ul>
 
-        <a class="navbar-kontakt" href="">Kontakt</a>
+        <a class="navbar-kontakt" href="kontakt"> Kontakt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             <form class="px-3 py-3" method="post" action="<c:url value="/kontakt"/>">
@@ -101,7 +107,7 @@
         <form class="form-inline mt-2 mt-md-0">
 
             <div class="nav-item dropdown " style="">
-                <a class="nav-link dropdown-toggle btn btn-secondary" href="#" id="dropdown02" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle btn btn-secondary" href="" id="dropdown02" data-toggle="dropdown"
                    aria-haspopup="true"
                    aria-expanded="false">Opret Bruger</a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-larger ">
