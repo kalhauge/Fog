@@ -4,45 +4,72 @@
     <br>
     <br>
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-1">
         Ordre nummer
+    </div>
+    <div class="col-md-1">
+        tilbuds dato
+    </div>
+    <div class="col-md-1">
+        ordre dato
+    </div>
+    <div class="col-md-1">
+        levering
     </div>
     <div class="col-md-2">
         Navn
     </div>
-    <div class="col-md-2">
-        Email
+    <div class="col-md-1">
+        bredde
     </div>
-    <div class="col-md-2">
-        Pris
+    <div class="col-md-1">
+        længde
     </div>
-    <div class="col-md-2">
-
+    <div class="col-md-1">
+        bredde
     </div>
-    <div class="col-md-2">
-
+    <div class="col-md-1">
+        længde
+    </div>
+    <div class="col-md-1">
+        status
     </div>
 </div>
 <hr>
-<c:forEach items="${requestScope.Orders}" var="ordreLinje" >
+<c:forEach items="${requestScope.Orders}" var="ordreLinje" varStatus="loop">
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-1">
             ${ordreLinje.orderID}
+    </div>
+    <div class="col-md-1">
+        ${ordreLinje.tilbudsdato}
+    </div>
+    <div class="col-md-1">
+            ${ordreLinje.ordredato}
+    </div>
+    <div class="col-md-1">
 
     </div>
     <div class="col-md-2">
-        ${ordreLinje.customer.name}
+            ${requestScope.navne[loop.index]}
     </div>
-    <div class="col-md-2">
-        ${ordreLinje.customer.email}
+    <div class="col-md-1">
+        ${requestScope.carportbredder[loop.index]}
     </div>
-    <div class="col-md-2">
-        ${ordreLinje.price}
+    <div class="col-md-1">
+            ${requestScope.carportlaengder[loop.index]}
+
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
+
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
+
     </div>
+    <div class="col-md-1">
+        ${ordreLinje.status}
+    </div>
+
 </div>
 </c:forEach>
 

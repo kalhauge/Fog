@@ -1,6 +1,10 @@
 package web;
 
 import api.Webapp;
+import domain.items.Shed;
+import domain.items.ShedRepository;
+import infrastructure.DBCarportRepository;
+import infrastructure.DBCustomerRepository;
 import infrastructure.DBOrderRepository;
 import infrastructure.Database;
 
@@ -20,7 +24,17 @@ public class BaseServlet extends HttpServlet {
     
     private static Webapp createApplication() {
         Database db=new Database();
-        return new Webapp(new DBOrderRepository(db));
+        return new Webapp(new DBOrderRepository(db), new DBCustomerRepository(), new DBCarportRepository(), new ShedRepository() {
+            @Override
+            public Iterable<Shed> findAll() {
+                return null;
+            }
+
+            @Override
+            public Shed find(int parseInt) {
+                return null;
+            }
+        });
     }
     
     

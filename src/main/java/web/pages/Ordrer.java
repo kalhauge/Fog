@@ -1,5 +1,7 @@
 package web.pages;
 
+import domain.items.DBException;
+import domain.items.Order;
 import web.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -7,13 +9,39 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/ordrer")
 public class Ordrer extends BaseServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("Orders", api.findAllOrders());
+        List<Order> orders = api.findAllOrders();
+        List<String>navne=new ArrayList<>();
+        List<Integer> carportBredder=new ArrayList<>();
+        List<Integer> carportLaengder=new ArrayList<>();
+        List<Integer> skurBredder=new ArrayList<>();
+        List<Integer> skurLaengder=new ArrayList<>();
+        for (Order o:orders) {
+            String navn=api.findKunde(o.getKundeId()).getName();navne.add(navn);
 
+            try {
+
+                int cBredde=api.findcarport(o.getCarportId()).getWidth();carportBredder.add(cBredde);
+                int cLaengde=api.findcarport(o.getCarportId()).getLenght();carportLaengder.add(cLaengde);
+
+
+
+            } catch (DBException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        req.setAttribute("carportbredder",carportBredder);
+        req.setAttribute("carportlaengder",carportLaengder);
+        req.setAttribute("Orders", orders);
+        req.setAttribute("navne",navne);
         try {
             render("Start", "/WEB-INF/webpages/ordrer.jsp", req, resp);
         } catch (ServletException | IOException  e){

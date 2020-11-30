@@ -32,7 +32,7 @@ entity Carport #White {
 entity Skur #White {
    <size:13> PK: id
    --
-   * <size:12> bredde
+       * <size:12> bredde
    --
    * <size:12> længde
 }

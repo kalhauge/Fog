@@ -11,7 +11,7 @@ public class DBShedRepository implements ShedRepository {
 
     @Override
     public Shed find(int parseInt) {
-        Shed shed=new Shed(parseInt,"",5000,2500);
-        return shed;
+       if(parseInt!=0)return new Shed(parseInt,"",3000,2500);
+        return null;
     }
 }
