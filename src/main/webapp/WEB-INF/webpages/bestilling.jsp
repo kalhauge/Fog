@@ -8,9 +8,8 @@
         <div class ="col-md-3">
             <h6><a href="http://localhost:8080/webapptemplate/bestilling"><b style="color: darkblue">CARPORT MED FLADT TAG</b></a></h6>
             <hr>
-            <h6><a href="http://localhost:8080/webapptemplate/"><b style="color: darkblue">CARPORT MED REJSNING</b></a></h6>
+            <h6><a href="http://localhost:8080/webapptemplate/bestillingRejsning"><b style="color: darkblue">CARPORT MED REJSNING</b></a></h6>
             <hr>
-            <h6><a href="http://localhost:8080/webapptemplate/"><b style="color: darkblue">STANDARD CARPORTE</b></a></h6>
 
         </div>
 
