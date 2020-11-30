@@ -58,6 +58,10 @@
     <a class="navbar-home" href=""> Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
+        <form class="px-3 py-3" method="post" action="<c:url value="/frontpage"/>">
+
+        </form>
+
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
@@ -69,16 +73,21 @@
         <a class="navbar-carporte" href="">Carporte</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            <form class="px-3 py-3" method="post" action="<c:url value="/bestilling"/>">
+            </form>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse3">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                 </li>
+
             </ul>
 
         <a class="navbar-kontakt" href="">Kontakt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            <form class="px-3 py-3" method="post" action="<c:url value="/kontakt"/>">
+            </form>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse2">
             <ul class="navbar-nav mr-auto">
@@ -91,7 +100,55 @@
 
         <form class="form-inline mt-2 mt-md-0">
 
-            <button class="Login-button" type="submit" enabled> Log ind</button>
+            <div class="nav-item dropdown " style="">
+                <a class="nav-link dropdown-toggle btn btn-secondary" href="#" id="dropdown02" data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">Opret Bruger</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-larger ">
+
+                    <form class="px-3 py-3" method="post" action="<c:url value="/bestilling"/>">
+                        <div class="form-group">
+                            <label for="exampleDropdownFormEmail2">Indtast Email</label>
+                            <input type="email" class="form-control" id="exampleDropdownFormEmail2"
+                                   name="email"
+                                   placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleDropdownFormPassword2">Opret Kodeord</label>
+                            <input type="password" class="form-control" id="exampleDropdownFormPassword2"
+                                   name="password"
+                                   placeholder="Kodeord">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Opret Bruger</button>
+                    </form>
+                </div>
+            </div>
         </form>
+    </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-secondary" href="#" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">Log Ind</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-larger">
+
+                    <form class="px-3 py-3" method="post" action="<c:url value="/bestilling"/>">
+                        <div class="form-group">
+                            <label for="exampleDropdownFormEmail1">Email</label>
+                            <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                                   name="Loginemail"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleDropdownFormPassword1">Kodeord</label>
+                            <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                                   name="Loginpassword">
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
 </nav>
