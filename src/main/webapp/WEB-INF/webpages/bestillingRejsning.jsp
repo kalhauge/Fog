@@ -16,7 +16,7 @@
         <div class="col-md-9">
 
             <div>
-                <h2>QUICK-BYG TILBUD - CARPORT MED FLADT TAG</h2>
+                <h2>QUICK-BYG TILBUD - CARPORT MED REJSNING</h2>
             </div>
 
             <div>
@@ -64,17 +64,32 @@
                         </select>
                     </div>
 
-                    <!-- Dropdown roof -->
+                    <!-- Dropdown roofRejs -->
                     <div class="form-group ">
-                        <label for="tag">Tag</label>
-                        <select class="form-control" name="number" id="tag">
-                            <c:forEach  items="${requestScope.tag}" var="tag">
-                                <option value="${tag}">
-                                        ${tag}
+                        <label for="tagRejs">Tag</label>
+                        <select class="form-control" name="number" id="tagRejs">
+                            <option value="tagRejs">Vælg tagtype/farve </option>
+                            <c:forEach  items="${requestScope.tagRejs}" var="tagRejs">
+                                <option value="${tagRejs}">
+                                        ${tagRejs}
                                 </option>
                             </c:forEach>
                         </select>
                     </div>
+
+                    <!-- Dropdown roofhældning -->
+                    <div class="form-group ">
+                        <label for="tagHald">Taghældning</label>
+                        <select class="form-control" name="number" id="tagHald">
+                            <c:forEach  items="${requestScope.tagHald}" var="tagHald">
+                                <option value="${tagHald}">
+
+                                        ${tagHald} grader
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
 
 
                     <br>
