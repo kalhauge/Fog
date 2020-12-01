@@ -36,7 +36,7 @@
 
                 <form method="post">
 
-                    <input type="hidden" name="target" value="">
+                    <input type="hidden" name="target" value="bestilling">
 
                     <!-- Dropdown length -->
                     <div class="form-group ">
