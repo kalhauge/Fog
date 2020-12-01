@@ -10,13 +10,11 @@ public class Webapp {
     private final OrderRepository orderList;
     private final CustomerRepository customers;
     private final CarportRepository carports;
-    private final ShedRepository sheds;
-    
-    public Webapp(OrderRepository orderList, CustomerRepository customers,CarportRepository carports,ShedRepository sheds) {
+
+    public Webapp(OrderRepository orderList, CustomerRepository customers,CarportRepository carports) {
         this.orderList=orderList;
         this.customers=customers;
         this.carports=carports;
-        this.sheds=sheds;
     }
     
     public static int getVersion() {
@@ -30,5 +28,4 @@ public class Webapp {
     }
     public Customer findKunde(int Id){return customers.find(Id);}
     public Carport findcarport(int Id) throws DBException {return carports.find(Id);}
-    public Shed findShed(int Id){return sheds.find(Id);}
 }

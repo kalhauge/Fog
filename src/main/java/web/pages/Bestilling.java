@@ -1,6 +1,5 @@
 package web.pages;
 
-import domain.items.CarportFactory;
 import infrastructure.Lists;
 import web.BaseServlet;
 
@@ -38,7 +37,6 @@ public class Bestilling extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CarportFactory factory = api.createCarport();
 
 
 

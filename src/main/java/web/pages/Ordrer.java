@@ -3,7 +3,6 @@ package web.pages;
 import domain.items.Carport;
 import domain.items.DBException;
 import domain.items.Order;
-import domain.items.Shed;
 import web.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -31,14 +30,9 @@ public class Ordrer extends BaseServlet {
                 Carport c=api.findcarport(o.getCarportId());
                 carportBredder.add(c.getWidth());
                 carportLaengder.add(c.getLenght());
-                Shed s=api.findShed(c.getShedId());
-                if (s!=null) {
-                    skurBredder.add(s.getWidht());
-                    skurLaengder.add(s.getLenght());
-                }else{
-                    skurBredder.add(0);
-                    skurLaengder.add(0);
-                }
+                skurBredder.add(c.getShedWidth());
+                skurLaengder.add(c.getShedLength());
+
 
 
 

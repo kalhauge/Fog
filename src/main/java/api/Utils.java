@@ -1,7 +1,6 @@
 package api;
 
 import domain.items.Carport;
-import domain.items.Shed;
 
 public class Utils {
     /**

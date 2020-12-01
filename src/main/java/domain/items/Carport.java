@@ -11,15 +11,41 @@ public class Carport {
     int shedWidth;
     int shedLength;
 
-    public Carport(int width, int lenght, String tag, boolean rejsning , int shedWidth, int shedLength) {
-
+    public Carport(int width, int lenght, String tag, boolean rejsning, int shedWidth, int shedLength) {
         this.width = width;
         this.lenght = lenght;
         this.tag = tag;
         this.rejsning = rejsning;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+    }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setLenght(int lenght) {
+        this.lenght = lenght;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public boolean isRejsning() {
+        return rejsning;
+    }
+
+    public void setRejsning(boolean rejsning) {
+        this.rejsning = rejsning;
+    }
+
+    public void setShedWidth(int shedWidth) {
+        this.shedWidth = shedWidth;
+    }
+
+    public void setShedLength(int shedLength) {
+        this.shedLength = shedLength;
     }
 
     public int getCarportID() {
