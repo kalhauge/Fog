@@ -8,6 +8,7 @@ CREATE TABLE carport (
     bredde int NOT NULL,
     længde int NOT NULL,
     rejsning boolean,
+    tag VARCHAR(50) NOT NULL,
     skurBredde int,
     skurLængde int,
     PRIMARY KEY (id)

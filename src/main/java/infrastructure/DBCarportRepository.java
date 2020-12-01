@@ -9,7 +9,6 @@ import domain.items.DBException;
 public class DBCarportRepository implements CarportRepository {
 
     private final Database db;
-
     public DBCarportRepository(Database db) {
         this.db = db;
     }
@@ -27,7 +26,8 @@ public class DBCarportRepository implements CarportRepository {
     }
 
     @Override
-    public CarportFactory create() {
+    public Carport commitCarport(Carport carport) {
         return null;
     }
+
 }

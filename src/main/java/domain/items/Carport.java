@@ -1,27 +1,25 @@
 package domain.items;
 
 public class Carport {
-    String type;
+
     int carportID;
     int width;
     int lenght;
-    Shed shed;
+    String tag;
+    boolean rejsning;
+    int shedWidth;
+    int shedLength;
 
-    public Carport(String type, int carportID, int width, int lenght, Shed shed) {
-        this.type = type;
-        this.carportID = carportID;
+    public Carport(int width, int lenght, String tag, boolean rejsning , int shedWidth, int shedLength) {
+
         this.width = width;
         this.lenght = lenght;
-        this.shed = shed;
+        this.tag = tag;
+        this.rejsning = rejsning;
+        this.shedWidth = shedWidth;
+        this.shedLength = shedLength;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
     public int getCarportID() {
         return carportID;
     }
@@ -34,8 +32,20 @@ public class Carport {
         return this.lenght;
     }
 
-    public Shed getShed() {
-        return shed;
+    public String getTag() {
+        return tag;
+    }
+
+    public boolean getRejsning() {
+        return rejsning;
+    }
+
+    public int getShedWidth() {
+        return shedWidth;
+    }
+
+    public int getShedLength() {
+        return shedLength;
     }
 
     public void setCarportID(int carportID) {
