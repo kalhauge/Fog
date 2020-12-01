@@ -10,7 +10,7 @@ public class Database {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://" + DB_SERVER + "/" + SCHEMA_NAME + "?serverTimezone=" + TimeZone.getDefault().getID();
     // Database version
-    private static final int version = 1;
+    private static final int version = 2;
     public Database() {
         try {
             Class.forName(JDBC_DRIVER);

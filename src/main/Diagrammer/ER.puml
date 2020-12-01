@@ -130,14 +130,10 @@ entity Carport #White {
    * <size:12> længde
    --
    * <size:12> rejsning
-}
-
-entity Skur #White {
-   <size:13> PK: id
    --
-   * <size:12> bredde
+   * <size:12> skurBredde
    --
-   * <size:12> længde
+   * <size:12> skurLængde
 }
 
 
@@ -210,7 +206,6 @@ entity Sælger #White {
 Kunde <|- Ordre
 Sælger <|-- Ordre
 Carport <|-- Ordre
-Skur <|- Carport
 Ordre <|-- StyklisteLinje
 Materialer <|-- StyklisteLinje
 Materialer <|-- volumeMaterialer

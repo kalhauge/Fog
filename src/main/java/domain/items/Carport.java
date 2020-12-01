@@ -7,8 +7,6 @@ public class Carport {
     int lenght;
     Shed shed;
 
-
-
     public Carport(String type, int carportID, int width, int lenght, Shed shed) {
         this.type = type;
         this.carportID = carportID;
