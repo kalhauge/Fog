@@ -1,9 +1,15 @@
 package web;
 
 import api.Webapp;
+
 import infrastructure.DBCarportRepository;
 import infrastructure.DBOrderRepository;
 import infrastructure.Database;
+
+import domain.items.Shed;
+import domain.items.ShedRepository;
+import infrastructure.*;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +27,9 @@ public class BaseServlet extends HttpServlet {
     
     private static Webapp createApplication() {
         Database db=new Database();
-        return new Webapp(new DBOrderRepository(db), new DBCarportRepository(db));
+
+        return new Webapp(new DBOrderRepository(db), new DBCustomerRepository(), new DBCarportRepository(), new DBShedRepository() );
+
     }
     
 

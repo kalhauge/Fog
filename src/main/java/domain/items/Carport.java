@@ -5,14 +5,16 @@ public class Carport {
     int carportID;
     int width;
     int lenght;
-    Shed shed;
+    int shedId;
 
-    public Carport(String type, int carportID, int width, int lenght, Shed shed) {
+
+    public Carport(String type, int carportID, int width, int lenght, int shedId) {
+
         this.type = type;
         this.carportID = carportID;
         this.width = width;
         this.lenght = lenght;
-        this.shed = shed;
+        this.shedId = shedId;
     }
 
     public String getType() {
@@ -34,8 +36,8 @@ public class Carport {
         return this.lenght;
     }
 
-    public Shed getShed() {
-        return shed;
+    public int getShedId() {
+        return shedId;
     }
 
     public void setCarportID(int carportID) {
