@@ -5,5 +5,7 @@ public interface CarportRepository {
     Iterable <Carport> findAll() throws DBException;
     Carport find(int parseInt) throws DBException;
 
-    CarportFactory create();
+    Carport commitCarport(Carport carport);
+
+    // CarportFactory create();
 }
