@@ -5,6 +5,7 @@ public class Carport {
     int carportID;
     int width;
     int lenght;
+
     String tag;
     boolean rejsning;
     int shedWidth;
@@ -18,6 +19,7 @@ public class Carport {
         this.rejsning = rejsning;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
+
     }
 
     public int getCarportID() {
@@ -46,6 +48,7 @@ public class Carport {
 
     public int getShedLength() {
         return shedLength;
+
     }
 
     public void setCarportID(int carportID) {

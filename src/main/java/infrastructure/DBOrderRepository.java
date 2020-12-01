@@ -1,9 +1,8 @@
 package infrastructure;
 
-import domain.items.Customer;
-import domain.items.Order;
-import domain.items.OrderRepository;
+import domain.items.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +14,19 @@ public class DBOrderRepository implements OrderRepository {
 
     @Override
     public List<Order> findAll() {
-        Order o1=new Order(1,new Customer("Jens","","jens@gmail.com",1345688,1,null,null),100000);
-        Order o2=new Order(2,new Customer("Peter","","jpeter@gmail.com",1345688,1,null,null),100000);
-        Order o3=new Order(3,new Customer("Gustav","","gustav@gmail.com",1345688,1,null,null),100000);
-        Order o4=new Order(4,new Customer("Kristian","","morten@gmail.com",1345688,1,null,null),100000);
+        Order o1=new Order(1,1,1,100000,"tilbud");
+        o1.setTilbudsdato(LocalDate.of(2020,11,25));
+        Order o2=new Order(2,1,2,12000,"tilbud");
+        o2.setTilbudsdato(LocalDate.of(2020,11,25));
+
+        Order o3=new Order(3,2,3,50000,"ordre");
+        o3.setTilbudsdato(LocalDate.of(2020,11,10));
+        o3.setOrdredato(LocalDate.of(2020,11,17));
+        o3.setLeveringsDato(LocalDate.of(2021,02,12));
+
+        Order o4=new Order(4,2,4,75000,"afslået");
+        o4.setTilbudsdato(LocalDate.of(2020,11,10));
+
         List<Order> orderlist=new ArrayList<>();
         orderlist.add(o1);orderlist.add(o2);orderlist.add(o3);orderlist.add(o4);
         return orderlist;
