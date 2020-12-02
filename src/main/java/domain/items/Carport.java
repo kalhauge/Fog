@@ -6,12 +6,13 @@ public class Carport {
     int width;
     int lenght;
 
-    String tag;
     boolean rejsning;
+    String tag;
     int shedWidth;
     int shedLength;
 
-    public Carport(int width, int lenght, String tag, boolean rejsning, int shedWidth, int shedLength) {
+t
+    public Carport(int width, int lenght, boolean rejsning, String tag, int shedWidth, int shedLength) {
         this.width = width;
         this.lenght = lenght;
         this.tag = tag;
@@ -79,5 +80,42 @@ public class Carport {
 
     public void setCarportID(int carportID) {
         this.carportID = carportID;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setLenght(int lenght) {
+        this.lenght = lenght;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public void setRejsning(boolean rejsning) {
+        this.rejsning = rejsning;
+    }
+
+    public void setShedWidth(int shedWidth) {
+        this.shedWidth = shedWidth;
+    }
+
+    public void setShedLength(int shedLength) {
+        this.shedLength = shedLength;
+    }
+
+    @Override
+    public String toString() {
+        return "Carport{" +
+                "carportID=" + carportID +
+                ", width=" + width +
+                ", lenght=" + lenght +
+                ", tag='" + tag + '\'' +
+                ", rejsning=" + rejsning +
+                ", shedWidth=" + shedWidth +
+                ", shedLength=" + shedLength +
+                '}';
     }
 }
