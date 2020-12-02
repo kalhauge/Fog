@@ -34,4 +34,7 @@ public class Webapp {
     public Customer findKunde(int Id){return customers.find(Id);}
     public Carport findcarport(int Id) throws DBException {return carports.find(Id);}
 
+    public Customer commitCustomer(Customer customer) throws DBException {
+        return customers.commitCustomer(customer);
+    }
 }

@@ -14,8 +14,7 @@ public class Database {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://" + DB_SERVER + "/" + SCHEMA_NAME + "?serverTimezone=" + TimeZone.getDefault().getID();
-    
-    
+
     // Database version
 
     private static final int version = 2;
@@ -48,7 +47,7 @@ public class Database {
             return -1;
         }
     }
-    
+        // Connection
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
         

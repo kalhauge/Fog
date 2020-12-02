@@ -1,54 +1,25 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gustaf
-  Date: 02/12/2020
-  Time: 09.24
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8"%>
 <style>
-    .form-group {
-        margin-left: 15px;
-        margin-right: 40%;
-    }
-    h1 {
-        font-size: x-large;
-        margin-left: 15px;
-    }
-    p1 {
-        font-style: italic;
-        margin-left: 15px;
+    .container {
+        margin: 5px;
+        margin-right: 5px;
     }
 </style>
-<html>
-<head>
-    <title>Title</title>
-    <h1> Johannes Fog Brugeroprettelse
-    <br>
-    <br>
-    <br>
-
-    </h1>
-</head>
-<body>
-<p1>
-Indtast dine oplysninger:
-
-</p1>
-<br>
-<br>
-
-<form>
+<form method="post">
+    <input type="hidden" name="oprettelse" value="oprettelse">
+<div class="container">
     <div class="form-group">
-        <label for="navn">Fulde navn:</label>
-        <input type="text" class="form-control" id="navn"
-               aria-describedby="kundeNavn" name="navn">
+
+        <label for="name">Fulde navn:</label>
+        <input type="text" class="form-control" id="name"
+               aria-describedby="kundeNavn" name="name">
     </div>
 
     <div class="form-group">
-        <label for="adresse">Adresse:</label>
-        <input type="text" class="form-control" id="adresse"
-               aria-describedby="kundeAdresse" name="adresse">
+        <label for="address">Adresse:</label>
+        <input type="text" class="form-control" id="address"
+               aria-describedby="kundeAdresse" name="address">
     </div>
 
     <div class="form-group">
@@ -62,7 +33,6 @@ Indtast dine oplysninger:
         <input type="text" class="form-control" id="tlfNummer"
                aria-describedby="kundeTlfNummer" name="tlfNummer">
     </div>
-
     <div class="form-group">
         <label for="email">Email-adresse:</label>
         <input type="text" class="form-control" id="email"
@@ -74,21 +44,18 @@ Indtast dine oplysninger:
                aria-describedby="kundepassword" name="password">
     </div>
     <div class="form-group">
-        <label for="gentagpassword">Gentag Password:</label>
-        <input type="text" class="form-control" id="gentagpassword"
-               aria-describedby="kundegentagpassword" name="gentagpasssword">
+        <label for="passwordrepeat">Gentag Password:</label>
+        <input type="text" class="form-control" id="passwordrepeat"
+               aria-describedby="passwordrepeat" name="passwordrepeat">
     </div>
+
     <div class="col-md-1">
-        <form method="post" >
-            <input type="hidden" name="vis" value="${ordreLinje.orderID}">
-            <button type="submit" class="btn btn-primary" >Opret</button>
-        </form>
-    </div>
+                <form method="post" >
+                    <input type="hidden" name="Opret" value="">
+                    <button type="submit" class="btn btn-primary" >Opret</button>
+                </form>
+            </div>
 
 
-
-
-
+</div>
 </form>
-</body>
-</html>
