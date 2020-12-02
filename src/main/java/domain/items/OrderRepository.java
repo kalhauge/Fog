@@ -4,5 +4,7 @@ import java.util.List;
 
 public interface OrderRepository {
     List<Order> findAll() ;
-    Customer find(int parseInt) ;
+    Order find(int parseInt) ;
+    int commit(Order order);
+
 }
