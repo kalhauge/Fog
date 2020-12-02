@@ -30,22 +30,22 @@
 
     <div class="form-group">
         <label for="tlfNummer">Telefon:</label>
-        <input type="text" class="form-control" id="tlfNummer"
+        <input type="number" class="form-control" id="tlfNummer"
                aria-describedby="kundeTlfNummer" name="tlfNummer">
     </div>
     <div class="form-group">
         <label for="email">Email-adresse:</label>
-        <input type="text" class="form-control" id="email"
+        <input type="email" class="form-control" id="email"
                aria-describedby="kundeEmail" name="email">
     </div>
     <div class="form-group">
         <label for="password">Password:</label>
-        <input type="text" class="form-control" id="password"
+        <input type="password" class="form-control" id="password"
                aria-describedby="kundepassword" name="password">
     </div>
     <div class="form-group">
         <label for="passwordrepeat">Gentag Password:</label>
-        <input type="text" class="form-control" id="passwordrepeat"
+        <input type="password" class="form-control" id="passwordrepeat"
                aria-describedby="passwordrepeat" name="passwordrepeat">
     </div>
 
