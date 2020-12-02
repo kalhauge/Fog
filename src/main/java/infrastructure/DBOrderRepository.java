@@ -35,7 +35,7 @@ public class DBOrderRepository implements OrderRepository {
     }
 
     @Override
-    public Order find(int parseInt) {
+    public Order find(String kundenavn) {
         return null;
     }
 
@@ -44,12 +44,12 @@ public class DBOrderRepository implements OrderRepository {
         int id = 0;
         try {
             Connection con = db.getConnection();
-            String SQL = "INSERT INTO carport (tilbudsDato,ordreDato,leveringsDato,kundeId,sælgerId,carportId,pris,status) VALUES (?, ?, ?, ?, ?, ?,?,?)";
+            String SQL = "INSERT INTO ordre (tilbudsDato,ordreDato,leveringsDato,kundeNavn,sælgerId,carportId,pris,status) VALUES (?, ?, ?, ?, ?, ?,?,?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setTimestamp(1, java.sql.Timestamp.valueOf(LocalDateTime.now()));//
             ps.setTimestamp(2, java.sql.Timestamp.valueOf(LocalDateTime.now()));
             ps.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
-            ps.setInt(4, order.getKundeId());
+            ps.setString(4, order.getKundeNavn());
             ps.setInt(5, order.getSaelgerId());
             ps.setInt(6, order.getCarportId());
             ps.setInt(7, order.getPrice());
