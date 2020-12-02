@@ -46,9 +46,9 @@ public class DBOrderRepository implements OrderRepository {
             Connection con = db.getConnection();
             String SQL = "INSERT INTO ordre (tilbudsDato,ordreDato,leveringsDato,kundeNavn,sælgerId,carportId,pris,status) VALUES (?, ?, ?, ?, ?, ?,?,?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setTimestamp(1, java.sql.Timestamp.valueOf(LocalDateTime.now()));//
-            ps.setTimestamp(2, java.sql.Timestamp.valueOf(LocalDateTime.now()));
-            ps.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
+            ps.setTimestamp(1, java.sql.Timestamp.valueOf(order.getTilbudsdato().atStartOfDay()));
+            ps.setTimestamp(2, java.sql.Timestamp.valueOf(order.getOrdredato().atStartOfDay()));
+            ps.setTimestamp(3, java.sql.Timestamp.valueOf(order.getLeveringsDato().atStartOfDay()));
             ps.setString(4, order.getKundeNavn());
             ps.setInt(5, order.getSaelgerId());
             ps.setInt(6, order.getCarportId());
