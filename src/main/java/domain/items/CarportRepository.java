@@ -1,11 +1,12 @@
 package domain.items;
 
+import java.sql.SQLException;
+import java.util.List;
+
 public interface CarportRepository {
 
-    Iterable <Carport> findAll() throws DBException;
+    List<Carport> findAll() throws DBException;
     Carport find(int parseInt) throws DBException;
+    int commitCarport(Carport carport) throws SQLException;
 
-    Carport commitCarport(Carport carport);
-
-    // CarportFactory create();
 }

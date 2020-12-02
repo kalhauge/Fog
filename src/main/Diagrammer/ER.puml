@@ -131,6 +131,8 @@ entity Carport #White {
    --
    * <size:12> rejsning
    --
+   * <size:12> tag
+   --
    * <size:12> skurBredde
    --
    * <size:12> skurLængde

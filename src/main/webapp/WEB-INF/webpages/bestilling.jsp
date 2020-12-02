@@ -41,7 +41,7 @@
                     <!-- Dropdown length -->
                     <div class="form-group ">
                         <label for="bredde">Carport bredde</label>
-                        <select class="form-control" name="number" id="bredde">
+                        <select class="form-control" name="bredde" id="bredde">
                             <option value="">Vælg bredde</option>
                             <c:forEach  items="${requestScope.carportMeasure}" var="bred">
                                 <option value="${bred}">
@@ -54,7 +54,7 @@
                     <!-- Dropdown width -->
                     <div class="form-group ">
                         <label for="længde">Carport længde</label>
-                        <select class="form-control" name="number" id="længde">
+                        <select class="form-control" name="laengde" id="længde">
                             <option value="">Vælg længde</option>
                             <c:forEach  items="${requestScope.carportMeasure.subList(0, carportMeasure.size()-1)}" var="len">
                                 <option value="${len}">
@@ -67,7 +67,7 @@
                     <!-- Dropdown roof -->
                     <div class="form-group ">
                         <label for="tag">Tag</label>
-                        <select class="form-control" name="number" id="tag">
+                        <select class="form-control" name="tag" id="tag">
                             <c:forEach  items="${requestScope.tag}" var="tag">
                                 <option value="${tag}">
                                         ${tag}
@@ -147,10 +147,8 @@
                     </div>
 
 
-
-
-
                     <button type="submit" class="btn btn-primary">Send bestilling</button>
+
                 </form>
                 <br>
                 <p>* Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.</p>
