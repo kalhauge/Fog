@@ -3,7 +3,6 @@ package web.pages;
 import domain.items.Carport;
 import domain.items.DBException;
 import domain.items.Order;
-import domain.items.Shed;
 import web.BaseServlet;
 
 import javax.servlet.ServletException;

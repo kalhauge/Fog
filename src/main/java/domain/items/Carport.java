@@ -1,29 +1,54 @@
 package domain.items;
 
 public class Carport {
-    String type;
+
     int carportID;
     int width;
     int lenght;
-    int shedId;
 
+    boolean rejsning;
+    String tag;
+    int shedWidth;
+    int shedLength;
 
-
-    public Carport(String type, int carportID, int width, int lenght, int shedId) {
-        this.type = type;
-        this.carportID = carportID;
+t
+    public Carport(int width, int lenght, boolean rejsning, String tag, int shedWidth, int shedLength) {
         this.width = width;
         this.lenght = lenght;
-        this.shedId = shedId;
+        this.tag = tag;
+        this.rejsning = rejsning;
+        this.shedWidth = shedWidth;
+        this.shedLength = shedLength;
     }
 
-    public String getType() {
-        return type;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setLenght(int lenght) {
+        this.lenght = lenght;
     }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public boolean isRejsning() {
+        return rejsning;
+    }
+
+    public void setRejsning(boolean rejsning) {
+        this.rejsning = rejsning;
+    }
+
+    public void setShedWidth(int shedWidth) {
+        this.shedWidth = shedWidth;
+    }
+
+    public void setShedLength(int shedLength) {
+        this.shedLength = shedLength;
+    }
+
     public int getCarportID() {
         return carportID;
     }
@@ -36,11 +61,61 @@ public class Carport {
         return this.lenght;
     }
 
-    public int getShedId() {
-        return shedId;
+    public String getTag() {
+        return tag;
+    }
+
+    public boolean getRejsning() {
+        return rejsning;
+    }
+
+    public int getShedWidth() {
+        return shedWidth;
+    }
+
+    public int getShedLength() {
+        return shedLength;
+
     }
 
     public void setCarportID(int carportID) {
         this.carportID = carportID;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setLenght(int lenght) {
+        this.lenght = lenght;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public void setRejsning(boolean rejsning) {
+        this.rejsning = rejsning;
+    }
+
+    public void setShedWidth(int shedWidth) {
+        this.shedWidth = shedWidth;
+    }
+
+    public void setShedLength(int shedLength) {
+        this.shedLength = shedLength;
+    }
+
+    @Override
+    public String toString() {
+        return "Carport{" +
+                "carportID=" + carportID +
+                ", width=" + width +
+                ", lenght=" + lenght +
+                ", tag='" + tag + '\'' +
+                ", rejsning=" + rejsning +
+                ", shedWidth=" + shedWidth +
+                ", shedLength=" + shedLength +
+                '}';
     }
 }

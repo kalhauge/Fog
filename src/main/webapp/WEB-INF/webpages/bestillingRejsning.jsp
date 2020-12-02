@@ -16,7 +16,7 @@
         <div class="col-md-9">
 
             <div>
-                <h2>QUICK-BYG TILBUD - CARPORT MED FLADT TAG</h2>
+                <h2>QUICK-BYG TILBUD - CARPORT MED REJSNING</h2>
             </div>
 
             <div>
@@ -36,12 +36,12 @@
 
                 <form method="post">
 
-                    <input type="hidden" name="target" value="bestilling">
+                    <input type="hidden" name="target" value="">
 
                     <!-- Dropdown length -->
                     <div class="form-group ">
                         <label for="bredde">Carport bredde</label>
-                        <select class="form-control" name="bredde" id="bredde">
+                        <select class="form-control" name="number" id="bredde">
                             <option value="">Vælg bredde</option>
                             <c:forEach  items="${requestScope.carportMeasure}" var="bred">
                                 <option value="${bred}">
@@ -54,7 +54,7 @@
                     <!-- Dropdown width -->
                     <div class="form-group ">
                         <label for="længde">Carport længde</label>
-                        <select class="form-control" name="laengde" id="længde">
+                        <select class="form-control" name="number" id="længde">
                             <option value="">Vælg længde</option>
                             <c:forEach  items="${requestScope.carportMeasure.subList(0, carportMeasure.size()-1)}" var="len">
                                 <option value="${len}">
@@ -64,17 +64,32 @@
                         </select>
                     </div>
 
-                    <!-- Dropdown roof -->
+                    <!-- Dropdown roofRejs -->
                     <div class="form-group ">
-                        <label for="tag">Tag</label>
-                        <select class="form-control" name="tag" id="tag">
-                            <c:forEach  items="${requestScope.tag}" var="tag">
-                                <option value="${tag}">
-                                        ${tag}
+                        <label for="tagRejs">Tag</label>
+                        <select class="form-control" name="number" id="tagRejs">
+                            <option value="tagRejs">Vælg tagtype/farve </option>
+                            <c:forEach  items="${requestScope.tagRejs}" var="tagRejs">
+                                <option value="${tagRejs}">
+                                        ${tagRejs}
                                 </option>
                             </c:forEach>
                         </select>
                     </div>
+
+                    <!-- Dropdown roofhældning -->
+                    <div class="form-group ">
+                        <label for="tagHald">Taghældning</label>
+                        <select class="form-control" name="number" id="tagHald">
+                            <c:forEach  items="${requestScope.tagHald}" var="tagHald">
+                                <option value="${tagHald}">
+
+                                        ${tagHald} grader
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
 
 
                     <br>
@@ -147,8 +162,10 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">Send bestilling</button>
 
+
+
+                    <button type="submit" class="btn btn-primary">Send bestilling</button>
                 </form>
                 <br>
                 <p>* Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.</p>
