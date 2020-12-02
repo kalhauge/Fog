@@ -18,18 +18,18 @@ DROP TABLE IF EXISTS ordre;
 CREATE TABLE ordre (
     id int AUTO_INCREMENT NOT NULL,
     tilbudsDato timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    ordreDato timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ordreDato timestamp DEFAULT CURRENT_TIMESTAMP,
     leveringsDato VARCHAR(255),
-    kundeID VARCHAR(255),
+    kundeEmail VARCHAR(255),
     sælgerID int NOT NULL,
     carportId int NOT NULL,
     pris int NOT NULL,
-    status int NOT NULL,
+    status VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    KEY kunde (kundeID),
+    KEY kunde (kundeEmail),
     KEY sælger (sælgerID),
     KEY carport (carportId),
-    CONSTRAINT kunde FOREIGN KEY (kundeID) REFERENCES kunde(email) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT kunde FOREIGN KEY (kundeEmail) REFERENCES kunde(email) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT sælger FOREIGN KEY (sælgerID) REFERENCES sælger(id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT carport FOREIGN KEY (carportId) REFERENCES carport(id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
