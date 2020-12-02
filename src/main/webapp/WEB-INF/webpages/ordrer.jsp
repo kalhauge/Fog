@@ -101,6 +101,7 @@
             <button type="submit" class="btn btn-primary" >Vis</button>
         </form>
     </div>
+
 </div>
 </c:forEach>
 

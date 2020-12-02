@@ -7,8 +7,14 @@
         margin-bottom: -20px;
     }
     .footerlogo {
-        width: auto;
-        height: auto;
+        width: 20%;
+        height: 20%;
+        margin-top: -10px;
+
+    }
+    .footer-copyright {
+        position: center;
+
 
     }
 
