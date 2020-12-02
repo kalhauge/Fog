@@ -24,6 +24,11 @@ public class DBCarportRepository implements CarportRepository {
     @Override
 
     public Carport find(int parseInt) throws DBException {
+        if (parseInt==1) return new Carport(3500,7000,"no",false,0,0);
+        if (parseInt==2) return new Carport(4000,8000,"",false,0,0);
+        if (parseInt==3) return new Carport(4000,8000,"",true,3700,2000);
+        if (parseInt==4) return new Carport(4000,8000,"",true,0,0);
+
         return null;
 
     }

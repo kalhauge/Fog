@@ -9,18 +9,20 @@ public class Webapp {
     private final static int VERSION = 1;
     private final static String TITLE = "Fog";
     private final OrderRepository orderList;
-    private final CarportRepository carportList;
 
-    
-    public Webapp(OrderRepository orderList, CarportRepository carportList) {
+    private final CustomerRepository customers;
+    private final CarportRepository carports;
+
+    public Webapp(OrderRepository orderList, CustomerRepository customers,CarportRepository carports) {
         this.orderList=orderList;
-        this.carportList = carportList;
+        this.customers=customers;
+        this.carports=carports;
+
     }
     
     public static int getVersion() {
         return VERSION;
     }
-    
     public static String getTitle() {
         return TITLE;
     }
@@ -29,5 +31,7 @@ public class Webapp {
        return orderList.findAll();
     }
 
+    public Customer findKunde(int Id){return customers.find(Id);}
+    public Carport findcarport(int Id) throws DBException {return carports.find(Id);}
 
 }
