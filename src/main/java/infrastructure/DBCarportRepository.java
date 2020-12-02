@@ -34,7 +34,7 @@ public class DBCarportRepository implements CarportRepository {
     }
 
     @Override
-    public int commitCarport(Carport carport) throws SQLException {
+    public int commit(Carport carport) {
         int id = 0;
         try {
             Connection con = db.getConnection();

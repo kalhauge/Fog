@@ -69,8 +69,7 @@ public class Bestilling extends BaseServlet {
 
                 try {
                 Carport carport = new Carport(bredde, langde, rejsning, tag,  shedW, shedL);
-                DBCarportRepository dbCarportRepository = new DBCarportRepository(new Database());
-                    dbCarportRepository.commitCarport(carport);
+                api.commitCarport(carport);
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
