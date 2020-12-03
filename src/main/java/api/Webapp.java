@@ -14,11 +14,13 @@ public class Webapp {
     private final OrderRepository orders;
     private final CustomerRepository customers;
     private final CarportRepository carports;
+    private final SellerRepository sellers;
 
-    public Webapp(OrderRepository orders, CustomerRepository customers,CarportRepository carports) {
+    public Webapp(OrderRepository orders, CustomerRepository customers,CarportRepository carports,SellerRepository sellers) {
         this.orders =orders;
         this.customers=customers;
         this.carports=carports;
+        this.sellers=sellers;
 
     }
     
@@ -46,8 +48,8 @@ public class Webapp {
     }
     public int commitCarport(Carport carport) throws SQLException {
        return carports.commit(carport);
-
     }
-
-
+    public int commitSeller(Seller seller){return sellers.commit(seller);}
+    public Seller findSeller(int id) throws DBException {return sellers.find(id);};
+    public List<Seller> findAllSellers () throws SQLException, DBException {return sellers.findAll();};
 }
