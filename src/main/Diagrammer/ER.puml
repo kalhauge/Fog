@@ -148,7 +148,7 @@ entity Ordre  #White {
    --
    * <size:12> leveringsDato
    --
-   <size:13> FK: kundeId
+   <size:13> FK: kundeEmail
    --
    <size:13> FK: sælgerId
    --
