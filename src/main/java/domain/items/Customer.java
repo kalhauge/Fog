@@ -28,19 +28,21 @@ public class Customer {
     String address;
     String email;
     int phoneNumber;
-    int customerID;
+    boolean admin;
     private byte[] salt;
     private byte[] secret;
 
-    public Customer(String name, String address, String email, int phoneNumber, int customerID, byte[] salt, byte[] secret) {
+
+    public Customer(String name, String address, String email, int phoneNumber, boolean admin, byte[] salt, byte[] secret) {
         this.name = name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.customerID = customerID;
+        this.admin = admin;
         this.salt = salt;
         this.secret = secret;
     }
+
 
     public static byte[] generateSalt() {
         SecureRandom random = new SecureRandom();
@@ -79,9 +81,10 @@ public class Customer {
 
     public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public int getCustomerID() { return customerID; }
 
-    public void setCustomerID(int customerID) { this.customerID = customerID; }
+    public boolean isAdmin() { return admin; }
+
+    public void setAdmin(boolean admin) { admin = admin; }
 
     public byte[] getSalt() { return salt; }
 
@@ -97,17 +100,17 @@ public class Customer {
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
         return phoneNumber == customer.phoneNumber &&
-                customerID == customer.customerID &&
-                Objects.equals(name, customer.name) &&
-                Objects.equals(address, customer.address) &&
-                Objects.equals(email, customer.email) &&
+                admin == customer.admin &&
+                name.equals(customer.name) &&
+                address.equals(customer.address) &&
+                email.equals(customer.email) &&
                 Arrays.equals(salt, customer.salt) &&
                 Arrays.equals(secret, customer.secret);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, address, email, phoneNumber, customerID);
+        int result = Objects.hash(name, address, email, phoneNumber, admin);
         result = 31 * result + Arrays.hashCode(salt);
         result = 31 * result + Arrays.hashCode(secret);
         return result;
@@ -120,11 +123,13 @@ public class Customer {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
-                ", customerID=" + customerID +
+                ", isAdmin=" + admin +
                 ", salt=" + Arrays.toString(salt) +
                 ", secret=" + Arrays.toString(secret) +
                 '}';
     }
+
+
 }
 
 

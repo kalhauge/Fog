@@ -154,7 +154,7 @@
                    aria-expanded="false">Log Ind</a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-larger">
 
-                    <form class="px-3 py-3" method="post" action="<c:url value="/bestilling"/>">
+                    <form class="px-3 py-3" method="post" action="<c:url value="/oprettelse"/>">
                         <div class="form-group">
                             <label for="exampleDropdownFormEmail1">Email</label>
                             <input type="email" class="form-control" id="exampleDropdownFormEmail1"

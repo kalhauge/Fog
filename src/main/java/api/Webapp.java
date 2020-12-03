@@ -2,6 +2,9 @@ package api;
 
 import domain.items.*;
 
+
+import java.sql.SQLException;
+
 import java.util.List;
 
 public class Webapp {
@@ -32,7 +35,19 @@ public class Webapp {
 
     public Customer findKunde(int Id){return customers.find(Id);}
     public Carport findCarport(int Id) throws DBException {return carports.find(Id);}
-    public int commitCarport(Carport carport)  {return carports.commit(carport);};
+
+  
 
     public int commitOrder(Order order){return orders.commit(order);};
+
+
+    public Customer commitCustomer(Customer customer) throws DBException {
+        return customers.commitCustomer(customer);
+    }
+    public int commitCarport(Carport carport) throws SQLException {
+       return carports.commit(carport);
+
+    }
+
+
 }

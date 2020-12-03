@@ -63,29 +63,7 @@ public class Carport {
         this.carportID = carportID;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
 
-    public void setLenght(int lenght) {
-        this.lenght = lenght;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public void setRejsning(boolean rejsning) {
-        this.rejsning = rejsning;
-    }
-
-    public void setShedWidth(int shedWidth) {
-        this.shedWidth = shedWidth;
-    }
-
-    public void setShedLength(int shedLength) {
-        this.shedLength = shedLength;
-    }
 
     @Override
     public String toString() {
