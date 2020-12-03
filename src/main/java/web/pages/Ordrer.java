@@ -28,6 +28,7 @@ public class Ordrer extends BaseServlet {
         for (Order o:orders) {
             String navn=o.getKundeNavn();navne.add(navn);
 
+
             try {
                 Carport c=api.findCarport(o.getCarportId());
                 carportBredder.add(c.getWidth());
