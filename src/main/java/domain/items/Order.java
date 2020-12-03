@@ -7,15 +7,33 @@ public class Order {
     LocalDate tilbudsdato;
     LocalDate ordredato;
     LocalDate leveringsDato;
-    int kundeId;
+    String kundeNavn;
     int saelgerId;
     int carportId;
     int price;
     String status;
 
-    public Order(int orderID, int kundeId, int carportId, int price, String status) {
+    public Order(LocalDate tilbudsdato, LocalDate ordredato, LocalDate leveringsDato,String kundeNavn, int saelgerId, int carportId, int price, String status) {
+        this.tilbudsdato = tilbudsdato;
+        this.ordredato = ordredato;
+        this.leveringsDato = leveringsDato;
+       this.kundeNavn=kundeNavn;
+        this.saelgerId = saelgerId;
+        this.carportId = carportId;
+        this.price = price;
+        this.status = status;
+    }
+
+    public String getKundeNavn() {
+        return kundeNavn;
+    }
+
+    public void setKundeNavn(String kundeNavn) {
+        this.kundeNavn = kundeNavn;
+    }
+
+    public Order(int orderID, int kundeid, int carportId, int price, String status) {
         this.orderID = orderID;
-        this.kundeId = kundeId;
         this.carportId = carportId;
         this.price = price;
         this.status = status;
@@ -37,9 +55,6 @@ public class Order {
         this.leveringsDato = leveringsDato;
     }
 
-    public void setKundeId(int kundeId) {
-        this.kundeId = kundeId;
-    }
 
     public void setSaelgerId(int saelgerId) {
         this.saelgerId = saelgerId;
@@ -73,9 +88,7 @@ public class Order {
         return leveringsDato;
     }
 
-    public int getKundeId() {
-        return kundeId;
-    }
+
 
     public int getSaelgerId() {
         return saelgerId;

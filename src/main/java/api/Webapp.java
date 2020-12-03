@@ -2,19 +2,21 @@ package api;
 
 import domain.items.*;
 
+
 import java.sql.SQLException;
+
 import java.util.List;
 
 public class Webapp {
     private final static int VERSION = 1;
     private final static String TITLE = "Fog";
-    private final OrderRepository orderList;
 
+    private final OrderRepository orders;
     private final CustomerRepository customers;
     private final CarportRepository carports;
 
-    public Webapp(OrderRepository orderList, CustomerRepository customers,CarportRepository carports) {
-        this.orderList=orderList;
+    public Webapp(OrderRepository orders, CustomerRepository customers,CarportRepository carports) {
+        this.orders =orders;
         this.customers=customers;
         this.carports=carports;
 
@@ -28,11 +30,16 @@ public class Webapp {
     }
 
     public  List<Order> findAllOrders(){
-       return orderList.findAll();
+       return orders.findAll();
     }
 
     public Customer findKunde(int Id){return customers.find(Id);}
     public Carport findCarport(int Id) throws DBException {return carports.find(Id);}
+
+  
+
+    public int commitOrder(Order order){return orders.commit(order);};
+
 
     public Customer commitCustomer(Customer customer) throws DBException {
         return customers.commitCustomer(customer);
@@ -41,5 +48,6 @@ public class Webapp {
        return carports.commit(carport);
 
     }
+
 
 }
