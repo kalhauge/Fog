@@ -2,7 +2,9 @@ package infrastructure;
 
 import domain.items.*;
 
+import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +35,39 @@ public class DBOrderRepository implements OrderRepository {
     }
 
     @Override
-    public Customer find(int parseInt) {
+    public Order find(String kundenavn) {
         return null;
+    }
+
+    @Override
+    public int commit(Order order) {
+        int id = 0;
+        try {
+            Connection con = db.getConnection();
+            String SQL = "INSERT INTO ordre (tilbudsDato,ordreDato,leveringsDato,kundeNavn,sælgerId,carportId,pris,status) VALUES (?, ?, ?, ?, ?, ?,?,?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setTimestamp(1, java.sql.Timestamp.valueOf(order.getTilbudsdato().atStartOfDay()));
+            ps.setTimestamp(2, java.sql.Timestamp.valueOf(order.getOrdredato().atStartOfDay()));
+            ps.setTimestamp(3, java.sql.Timestamp.valueOf(order.getLeveringsDato().atStartOfDay()));
+            ps.setString(4, order.getKundeNavn());
+            ps.setInt(5, order.getSaelgerId());
+            ps.setInt(6, order.getCarportId());
+            ps.setInt(7, order.getPrice());
+            ps.setString(8, order.getStatus());
+
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                id = rs.getInt(1);
+            } else {
+                System.out.println("else");
+                throw new RuntimeException("Unexpected error");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        return id;
     }
 }
