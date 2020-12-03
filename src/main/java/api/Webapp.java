@@ -31,8 +31,15 @@ public class Webapp {
        return orderList.findAll();
     }
 
-    public Customer findKunde(int Id){return customers.find(Id);}
+
     public Carport findCarport(int Id) throws DBException {return carports.find(Id);}
+
+    public Customer findCustomer(String email) throws DBException, CustomerNotFound {
+        return customers.findCustomer(email);
+    }
+    public List<Customer> findAllCustomers() throws DBException, CustomerNotFound {
+        return (List<Customer>) customers.findAll();
+    }
 
     public Customer commitCustomer(Customer customer) throws DBException {
         return customers.commitCustomer(customer);

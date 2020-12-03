@@ -5,7 +5,30 @@
         margin: 5px;
         margin-right: 5px;
     }
+    p1 {
+        font-style: italic;
+    }
 </style>
+<html>
+<head>
+    <title>Title</title>
+    <h1> Johannes Fog - Brugeroprettelse
+        <br>
+        <br>
+        <br>
+
+    </h1>
+</head>
+<body>
+<p1>
+    Her kan du oprette en bruger. Du skal have oprettet dig som bruger, før du kan bestille
+    en carport.
+    <br>
+    Indtast dine oplysninger:
+
+</p1>
+<br>
+<br>
 <form method="post">
     <input type="hidden" name="oprettelse" value="oprettelse">
 <div class="container">
