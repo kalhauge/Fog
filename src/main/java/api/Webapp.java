@@ -37,7 +37,7 @@ public class Webapp {
 
 
     public Carport findCarport(int Id) throws DBException {return carports.find(Id);}
-
+    public List<Carport> findAlleCarports()throws DBException {return carports.findAll();};
 
     public Customer findCustomer(String email) throws DBException, CustomerNotFound {
         return customers.findCustomer(email);

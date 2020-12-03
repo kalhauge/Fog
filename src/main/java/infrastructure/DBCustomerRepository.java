@@ -51,7 +51,7 @@ public class DBCustomerRepository implements CustomerRepository {
     public Customer findCustomer(String email) throws CustomerNotFound, DBException {
         try {
 
-            Connection con = db.getConnection();
+;            Connection con = db.getConnection();
             String SQL = "SELECT * FROM kunde WHERE email=(?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
@@ -65,7 +65,6 @@ public class DBCustomerRepository implements CustomerRepository {
                 byte[] salt = rs.getBytes("salt");
 
                 Customer customer = new Customer(name, addresse,email,tlfNummer,false, salt, secret);
-
                 return customer;
 
             }
