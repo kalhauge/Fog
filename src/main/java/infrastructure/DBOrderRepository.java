@@ -16,22 +16,26 @@ public class DBOrderRepository implements OrderRepository {
     }
 
     @Override
-    public List<Order> findAll() {
-        Order o1=new Order(1,1,1,100000,"tilbud");
-        o1.setTilbudsdato(LocalDate.of(2020,11,25));
-        Order o2=new Order(2,1,2,12000,"tilbud");
-        o2.setTilbudsdato(LocalDate.of(2020,11,25));
-
-        Order o3=new Order(3,2,3,50000,"ordre");
-        o3.setTilbudsdato(LocalDate.of(2020,11,10));
-        o3.setOrdredato(LocalDate.of(2020,11,17));
-        o3.setLeveringsDato(LocalDate.of(2021,02,12));
-
-        Order o4=new Order(4,2,4,75000,"afslået");
-        o4.setTilbudsdato(LocalDate.of(2020,11,10));
-
+    public List<Order> findAll() throws SQLException {
         List<Order> orderlist=new ArrayList<>();
-        orderlist.add(o1);orderlist.add(o2);orderlist.add(o3);orderlist.add(o4);
+        Connection con = db.getConnection();
+        String SQL = "SELECT * FROM ordre";
+        PreparedStatement ps = con.prepareStatement(SQL);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            int id=rs.getInt("id");
+            LocalDate tilbudsDato= Utils.timestampToLocalDate(rs.getTimestamp("tilbudsDato"));
+            LocalDate ordreDato=Utils.timestampToLocalDate(rs.getTimestamp("ordreDato"));
+            LocalDate leveringsDato=Utils.timestampToLocalDate(rs.getTimestamp("leveringsDato"));
+            String eamil=rs.getString("kundeEmail");
+            int saelgerId=rs.getInt("sælgerID");
+            int carportId=rs.getInt("carportid");
+            int pris=rs.getInt("pris");
+            String status=rs.getString("status");
+            Order order=new Order (tilbudsDato,ordreDato,leveringsDato,eamil,saelgerId,carportId,pris,status);
+            order.setOrderID(id);
+            orderlist.add(order);
+        }
         return orderlist;
     }
 

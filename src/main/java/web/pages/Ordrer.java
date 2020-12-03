@@ -1,6 +1,7 @@
 package web.pages;
 
 import domain.items.Carport;
+import domain.items.Customer;
 import domain.items.DBException;
 import domain.items.Order;
 import web.BaseServlet;
@@ -10,14 +11,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.BlockingDeque;
 
 @WebServlet("/ordrer")
 public class Ordrer extends BaseServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Order> orders = api.findAllOrders();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException  {
+        List<Order> orders = null;
+        try {
+            orders = api.findAllOrders();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         List<String>navne=new ArrayList<>();
         List<Integer> carportBredder=new ArrayList<>();
         List<Integer> carportLaengder=new ArrayList<>();
@@ -26,9 +34,10 @@ public class Ordrer extends BaseServlet {
 
 
         for (Order o:orders) {
-            String navn=o.getKundeEmail();navne.add(navn);
+           navne.add(o.getKundeEmail());
 
             try {
+
                 Carport c=api.findCarport(o.getCarportId());
                 carportBredder.add(c.getWidth());
                 carportLaengder.add(c.getLenght());

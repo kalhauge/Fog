@@ -29,7 +29,7 @@ public class Webapp {
         return TITLE;
     }
 
-    public  List<Order> findAllOrders(){
+    public  List<Order> findAllOrders() throws SQLException {
        return orders.findAll();
     }
 
