@@ -1,5 +1,6 @@
 package api;
 
+import domain.items.Carport;
 import domain.items.DBException;
 import domain.items.Order;
 import domain.items.Seller;
@@ -27,8 +28,10 @@ public class WebappTest extends TestCase {
         List<Seller> sellers=api.findAllSellers();
         for (Seller sellr:sellers ) {
             System.out.println(sellr.getName());
-
         }
-
+        List<Carport> carports=api.findAlleCarports();
+        for (Carport carport:carports){
+            System.out.println(carport);
+        }
     }
 }
