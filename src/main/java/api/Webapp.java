@@ -39,7 +39,7 @@ public class Webapp {
   
 
     public int commitOrder(Order order){return orders.commit(order);};
-
+    public Order findOrder(int id) throws DBException {return orders.find(id);}
 
     public Customer commitCustomer(Customer customer) throws DBException {
         return customers.commitCustomer(customer);
