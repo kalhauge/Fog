@@ -2,11 +2,11 @@ package web.pages;
 
 
 import domain.items.*;
-import infrastructure.DBCarportRepository;
-import infrastructure.Database;
 
+import infrastructure.DBCarportRepository;
 import infrastructure.Lists;
 import web.BaseServlet;
+import web.svg.SvgCarport;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,22 +15,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @WebServlet("/bestilling")
 public class Bestilling extends BaseServlet {
+
 
     public static List<Carport> getCarport(HttpServletRequest req) {
 
         var s = req.getSession();
         List<Carport> carportList = (List<Carport>) s.getAttribute("carportList");
         if (carportList == null) {
-            carportList = new ArrayList<>();
+            carportList = new ArrayList<Carport>();
             s.setAttribute("carportList", carportList);
         }
         System.out.println(carportList);
         return carportList;
     }
+
+
 
 
     @Override
@@ -45,6 +49,11 @@ public class Bestilling extends BaseServlet {
             req.setAttribute("carportMeasure", list.carportMeasure());
             req.setAttribute("tag", list.tag());
             req.setAttribute("shed", list.shed());
+            req.setAttribute("svg", SvgCarport.carport().toString());
+            req.setAttribute("bredde", req.getSession().getAttribute("bredde"));
+            req.setAttribute("langde", req.getSession().getAttribute("langde"));
+            req.setAttribute("tag2", req.getSession().getAttribute("tag2"));
+
 
             render("Bestilling", "/WEB-INF/webpages/bestilling.jsp", req, resp);
         } catch (ServletException | IOException e) {
@@ -66,6 +75,12 @@ public class Bestilling extends BaseServlet {
                 boolean rejsning = false;
                 int shedW = 0;
                 int shedL = 0;
+
+                var s = req.getSession();
+                s.setAttribute("bredde", bredde);
+                s.setAttribute("langde", langde);
+                s.setAttribute("tag2", tag);
+
 
                 try {
                 Carport carport = new Carport(bredde, langde, rejsning, tag,  shedW, shedL);

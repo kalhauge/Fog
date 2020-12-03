@@ -25,6 +25,11 @@ public class Svg extends Tag {
         );
     }
 
+
+
+
+
+
     public static Tag chessfield(int r, int c) {
         Tag rect = new Rect(0.05 + r, c + 0.05, 0.9, 0.9);
         if ((r % 2 + c) % 2 == 0) {
@@ -47,9 +52,11 @@ public class Svg extends Tag {
         return checkboard;
     }
 
+
+
     public static void main(String[] args) {
-        try (FileWriter writer = new FileWriter("./src/main/java/web/svg/svgOutput/chess.svg")) {
-            writer.write(chessboard().toString());
+        try (FileWriter writer = new FileWriter("./src/main/java/web/svg/svgOutput/carport.svg")) {
+          writer.write(chessboard().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
