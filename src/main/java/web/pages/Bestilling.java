@@ -68,7 +68,11 @@ public class Bestilling extends BaseServlet {
                 int shedL = 0;
 
                 Carport carport = new Carport(bredde, langde, rejsning, tag,  shedW, shedL);
-                api.commitCarport(carport);
+                try {
+                    api.commitCarport(carport);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
 
 
                 resp.sendRedirect(req.getContextPath() + "/bestilling");
