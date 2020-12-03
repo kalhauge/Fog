@@ -7,29 +7,30 @@ public class Order {
     LocalDate tilbudsdato;
     LocalDate ordredato;
     LocalDate leveringsDato;
-    String kundeNavn;
+    String kundeEmail;
     int saelgerId;
     int carportId;
     int price;
     String status;
 
-    public Order(LocalDate tilbudsdato, LocalDate ordredato, LocalDate leveringsDato,String kundeNavn, int saelgerId, int carportId, int price, String status) {
+    public Order(LocalDate tilbudsdato, LocalDate ordredato, LocalDate leveringsDato,String kundeEmail, int saelgerId, int carportId, int price, String status) {
         this.tilbudsdato = tilbudsdato;
         this.ordredato = ordredato;
         this.leveringsDato = leveringsDato;
-       this.kundeNavn=kundeNavn;
+
+       this.kundeEmail=kundeEmail;
         this.saelgerId = saelgerId;
         this.carportId = carportId;
         this.price = price;
         this.status = status;
     }
 
-    public String getKundeNavn() {
-        return kundeNavn;
+    public String getKundeEmail() {
+        return kundeEmail;
     }
 
-    public void setKundeNavn(String kundeNavn) {
-        this.kundeNavn = kundeNavn;
+    public void setKundeEmail(String kundeEmail) {
+        this.kundeEmail = kundeEmail;
     }
 
     public Order(int orderID, int kundeid, int carportId, int price, String status) {
@@ -88,7 +89,20 @@ public class Order {
         return leveringsDato;
     }
 
-
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderID=" + orderID +
+                ", tilbudsdato=" + tilbudsdato +
+                ", ordredato=" + ordredato +
+                ", leveringsDato=" + leveringsDato +
+                ", kundeEmail='" + kundeEmail + '\'' +
+                ", saelgerId=" + saelgerId +
+                ", carportId=" + carportId +
+                ", price=" + price +
+                ", status='" + status + '\'' +
+                '}';
+    }
 
     public int getSaelgerId() {
         return saelgerId;
