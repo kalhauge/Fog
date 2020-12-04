@@ -139,7 +139,6 @@
                     <br>
                     <div class="row">
                         <h6> Tegning af din carport:<br></h6>
-                        <br>
                         ${svg}
                     </div>
 

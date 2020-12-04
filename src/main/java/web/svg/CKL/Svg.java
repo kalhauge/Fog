@@ -1,4 +1,6 @@
-package web.svg;
+package web.svg.CKL;
+
+import web.svg.Tag;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -25,11 +27,6 @@ public class Svg extends Tag {
         );
     }
 
-
-
-
-
-
     public static Tag chessfield(int r, int c) {
         Tag rect = new Rect(0.05 + r, c + 0.05, 0.9, 0.9);
         if ((r % 2 + c) % 2 == 0) {
@@ -43,7 +40,6 @@ public class Svg extends Tag {
 
     public static Tag chessboard() {
         Svg checkboard = new Svg(1000, 1000, "1 1 8 8");
-
         for (int r = 1; r <= 8; r++) {
             for (int c = 1; c <= 8; c++) {
                 checkboard.add(chessfield(r, c));
