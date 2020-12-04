@@ -1,9 +1,6 @@
 package web.pages;
 
-import domain.items.Carport;
-import domain.items.Customer;
-import domain.items.DBException;
-import domain.items.Order;
+import domain.items.*;
 import web.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -34,7 +31,13 @@ public class Ordrer extends BaseServlet {
 
 
         for (Order o:orders) {
-           navne.add(o.getKundeEmail());
+            try {
+                navne.add(api.findCustomer(o.getKundeEmail()).getName());
+            } catch (DBException e) {
+                e.printStackTrace();
+            } catch (CustomerNotFound customerNotFound) {
+                customerNotFound.printStackTrace();
+            }
 
 
             try {
