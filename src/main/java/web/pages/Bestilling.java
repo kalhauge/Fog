@@ -34,13 +34,24 @@ public class Bestilling extends BaseServlet {
         return carportList;
     }
 
-    public static int getBredde(HttpServletRequest req){
-        int bredde = 0;
-        var s = req.getSession();
-        bredde = (int) s.getAttribute("bredde");
-        return bredde;
-    }
 
+    public static class CarportDTO {
+        public double width = 200;
+        public double height = 200;
+       
+        public CarportDTO fromSession(HttpSession ses) {
+            CarportDTO carport = ses.getAttribute("carport");
+            if (carport == null) {
+                carport = new CarportDTO();
+                ses.setAttribute("carport", carport);
+            }
+            return carport;
+        }
+        
+        public String getDrawing() {
+            return SvgCarport.carport(width, heigth).toString()
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,10 +62,11 @@ public class Bestilling extends BaseServlet {
             list.tag();
             list.shed();
 
+            CarportDTO.fromSession(req.getSession());
+            
             req.setAttribute("carportMeasure", list.carportMeasure());
             req.setAttribute("tag", list.tag());
             req.setAttribute("shed", list.shed());
-            req.setAttribute("svg", SvgCarport.carport().toString());
             req.setAttribute("bredde", req.getSession().getAttribute("bredde"));
             req.setAttribute("langde", req.getSession().getAttribute("langde"));
             req.setAttribute("tag2", req.getSession().getAttribute("tag2"));
@@ -83,8 +95,10 @@ public class Bestilling extends BaseServlet {
                 int shedL = 0;
 
                 var s = req.getSession();
-                s.setAttribute("bredde", bredde);
-                s.setAttribute("langde", langde);
+                CarportDTO cp = CarportDTO.fromSession(s);
+                cp.width = bredde;
+                cp.height = langde;
+                
                 s.setAttribute("tag2", tag);
 
 
