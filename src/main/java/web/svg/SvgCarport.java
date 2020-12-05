@@ -1,9 +1,17 @@
 package web.svg;
 
+import domain.items.Carport;
+import web.pages.Bestilling;
 import web.svg.CKL.Svg;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,12 +126,13 @@ public class SvgCarport extends Tag {
 
 
     public static Tag carport() {
+
         Svg carport = new Svg(800, 600, "0 0 800 600");
         carport.add(ramme());
         carport.add(rem1());
         carport.add(rem2());
 
-        List spaers = spaer1(723.9);
+        List spaers = spaer1(778.8);
         for (Object o : spaers) {
             carport.add((Tag) o);
         }
@@ -142,6 +151,7 @@ public class SvgCarport extends Tag {
     }
 
     public static void main(String[] args) {
+
         try (FileWriter writer = new FileWriter("./src/main/java/web/svg/svgOutput/carport.svg"))
         {
             writer.write(carport().toString());
@@ -152,4 +162,7 @@ public class SvgCarport extends Tag {
         }
 
     }
-}
+
+
+    }
+

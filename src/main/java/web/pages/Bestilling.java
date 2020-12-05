@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -20,7 +21,6 @@ import java.util.List;
 
 @WebServlet("/bestilling")
 public class Bestilling extends BaseServlet {
-
 
     public static List<Carport> getCarport(HttpServletRequest req) {
 
@@ -34,7 +34,12 @@ public class Bestilling extends BaseServlet {
         return carportList;
     }
 
-
+    public static int getBredde(HttpServletRequest req){
+        int bredde = 0;
+        var s = req.getSession();
+        bredde = (int) s.getAttribute("bredde");
+        return bredde;
+    }
 
 
     @Override
@@ -68,6 +73,7 @@ public class Bestilling extends BaseServlet {
 
         if (req.getParameter("target") != null)
             if (req.getParameter("target").equals("bestilling")) {
+
 
                 int bredde = Integer.parseInt(req.getParameter("bredde"));
                 int langde = Integer.parseInt(req.getParameter("laengde"));
